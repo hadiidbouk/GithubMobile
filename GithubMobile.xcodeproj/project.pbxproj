@@ -16,6 +16,7 @@
 		0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */; };
 		0F9B3FAB23DA541A00D79A72 /* Apply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FAA23DA541A00D79A72 /* Apply.swift */; };
 		0F9B3FAD23DA544700D79A72 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FAC23DA544700D79A72 /* Reflection.swift */; };
+		0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */; };
 		9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		0F9B3FAA23DA541A00D79A72 /* Apply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apply.swift; sourceTree = "<group>"; };
 		0F9B3FAC23DA544700D79A72 /* Reflection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
+		0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.release.xcconfig"; sourceTree = "<group>"; };
 		ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				0F9B3FA923DA53FE00D79A72 /* Tools */,
+				0F9B3FAE23DA548800D79A72 /* Extensions */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				0F9B3FAC23DA544700D79A72 /* Reflection.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		0F9B3FAE23DA548800D79A72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C6E1D97F718C1ED3FF69F3D2 /* Pods */ = {
@@ -272,6 +283,7 @@
 				0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */,
 				0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */,
 				0F9B3FAB23DA541A00D79A72 /* Apply.swift in Sources */,
+				0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */,
 				0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */,
 				0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */,
 				0F54214A23DA444A007F976C /* AppDelegate.swift in Sources */,
