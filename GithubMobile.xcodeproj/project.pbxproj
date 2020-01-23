@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0F54214A23DA444A007F976C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214923DA444A007F976C /* AppDelegate.swift */; };
 		0F54214C23DA444A007F976C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214B23DA444A007F976C /* SceneDelegate.swift */; };
-		0F54214E23DA444A007F976C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214D23DA444A007F976C /* ViewController.swift */; };
-		0F54215123DA444A007F976C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F54214F23DA444A007F976C /* Main.storyboard */; };
+		0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214D23DA444A007F976C /* LoginViewController.swift */; };
 		0F54215323DA444B007F976C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F54215223DA444B007F976C /* Assets.xcassets */; };
-		0F54215623DA444B007F976C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F54215423DA444B007F976C /* LaunchScreen.storyboard */; };
+		0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */; };
+		0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */; };
+		0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */; };
 		9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +21,12 @@
 		0F54214623DA444A007F976C /* GithubMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F54214923DA444A007F976C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F54214B23DA444A007F976C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F54214D23DA444A007F976C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0F54215023DA444A007F976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0F54214D23DA444A007F976C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F54215223DA444B007F976C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0F54215523DA444B007F976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F54215723DA444B007F976C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.release.xcconfig"; sourceTree = "<group>"; };
 		ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,15 +73,56 @@
 		0F54214823DA444A007F976C /* GithubMobile */ = {
 			isa = PBXGroup;
 			children = (
-				0F54214923DA444A007F976C /* AppDelegate.swift */,
-				0F54214B23DA444A007F976C /* SceneDelegate.swift */,
-				0F54214D23DA444A007F976C /* ViewController.swift */,
-				0F54214F23DA444A007F976C /* Main.storyboard */,
-				0F54215223DA444B007F976C /* Assets.xcassets */,
-				0F54215423DA444B007F976C /* LaunchScreen.storyboard */,
-				0F54215723DA444B007F976C /* Info.plist */,
+				0F9B3F9923DA471900D79A72 /* Application */,
+				0F9B3F9F23DA485700D79A72 /* Scenarios */,
+				0F9B3FA323DA4B2A00D79A72 /* Resources */,
 			);
 			path = GithubMobile;
+			sourceTree = "<group>";
+		};
+		0F9B3F9923DA471900D79A72 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0F9B3F9A23DA47F000D79A72 /* Base */,
+				0F54214923DA444A007F976C /* AppDelegate.swift */,
+				0F54214B23DA444A007F976C /* SceneDelegate.swift */,
+				0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */,
+				0F54215723DA444B007F976C /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0F9B3F9A23DA47F000D79A72 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0F9B3F9F23DA485700D79A72 /* Scenarios */ = {
+			isa = PBXGroup;
+			children = (
+				0F9B3FA023DA488400D79A72 /* Login */,
+			);
+			path = Scenarios;
+			sourceTree = "<group>";
+		};
+		0F9B3FA023DA488400D79A72 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0F54214D23DA444A007F976C /* LoginViewController.swift */,
+				0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0F9B3FA323DA4B2A00D79A72 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F54215223DA444B007F976C /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C6E1D97F718C1ED3FF69F3D2 /* Pods */ = {
@@ -88,7 +131,6 @@
 				ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */,
 				540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -152,9 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F54215623DA444B007F976C /* LaunchScreen.storyboard in Resources */,
 				0F54215323DA444B007F976C /* Assets.xcassets in Resources */,
-				0F54215123DA444A007F976C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,32 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F54214E23DA444A007F976C /* ViewController.swift in Sources */,
+				0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */,
+				0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */,
+				0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */,
+				0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */,
 				0F54214A23DA444A007F976C /* AppDelegate.swift in Sources */,
 				0F54214C23DA444A007F976C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		0F54214F23DA444A007F976C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F54215023DA444A007F976C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0F54215423DA444B007F976C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F54215523DA444B007F976C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0F54215823DA444B007F976C /* Debug */ = {
@@ -354,9 +378,10 @@
 			baseConfigurationReference = ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YL77PVMV33;
-				INFOPLIST_FILE = GithubMobile/Info.plist;
+				INFOPLIST_FILE = GithubMobile/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hadiidbouk.GithubMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,9 +398,10 @@
 			baseConfigurationReference = 540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YL77PVMV33;
-				INFOPLIST_FILE = GithubMobile/Info.plist;
+				INFOPLIST_FILE = GithubMobile/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hadiidbouk.GithubMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
