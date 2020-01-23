@@ -13,6 +13,7 @@
 		0F54215123DA444A007F976C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F54214F23DA444A007F976C /* Main.storyboard */; };
 		0F54215323DA444B007F976C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F54215223DA444B007F976C /* Assets.xcassets */; };
 		0F54215623DA444B007F976C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F54215423DA444B007F976C /* LaunchScreen.storyboard */; };
+		9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		0F54215223DA444B007F976C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F54215523DA444B007F976C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F54215723DA444B007F976C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.release.xcconfig"; sourceTree = "<group>"; };
+		ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F339C6F64FA707BCFB98D20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0F54213D23DA444A007F976C = {
 			isa = PBXGroup;
 			children = (
 				0F54214823DA444A007F976C /* GithubMobile */,
 				0F54214723DA444A007F976C /* Products */,
+				C6E1D97F718C1ED3FF69F3D2 /* Pods */,
+				0F339C6F64FA707BCFB98D20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = GithubMobile;
 			sourceTree = "<group>";
 		};
+		C6E1D97F718C1ED3FF69F3D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */,
+				540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F54215A23DA444B007F976C /* Build configuration list for PBXNativeTarget "GithubMobile" */;
 			buildPhases = (
+				CF5CD6DBF63F0D6579AEB4D4 /* [CP] Check Pods Manifest.lock */,
 				0F54214223DA444A007F976C /* Sources */,
 				0F54214323DA444A007F976C /* Frameworks */,
 				0F54214423DA444A007F976C /* Resources */,
+				FD39E6B7B3804498E010588C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CF5CD6DBF63F0D6579AEB4D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GithubMobile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD39E6B7B3804498E010588C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GithubMobile/Pods-GithubMobile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GithubMobile/Pods-GithubMobile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GithubMobile/Pods-GithubMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F54214223DA444A007F976C /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		0F54215B23DA444B007F976C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +370,7 @@
 		};
 		0F54215C23DA444B007F976C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
