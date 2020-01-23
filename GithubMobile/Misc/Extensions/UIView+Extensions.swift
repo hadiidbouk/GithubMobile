@@ -120,3 +120,11 @@ extension UIView {
     self.removeConstraints(self.constraints)
   }
 }
+
+//MARK: - Others
+extension UIView {
+    func roundedCorners(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.layer.masksToBounds = true
+    }
+}
