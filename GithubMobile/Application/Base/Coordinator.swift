@@ -6,8 +6,8 @@
 //  Copyright © 2020 Hadi Dbouk. All rights reserved.
 //
 
-import Foundation
+import ReactiveSwift
 
-protocol Coordinator {
+protocol Coordinator: ReactiveExtensionsProvider {
     func start()
 }
