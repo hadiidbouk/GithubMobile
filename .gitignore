@@ -26,3 +26,4 @@ DerivedData/
 /*.gcno
 .DS_Store
 
+GithubMobile/Resources/AuthConfig/AuthConfig.plist
