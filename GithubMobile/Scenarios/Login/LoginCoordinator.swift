@@ -11,14 +11,18 @@ import UIKit
 class LoginCoordinator: Coordinator {
   private let presentViewController: UINavigationController
   private var viewController: LoginViewController?
+  private var viewModel: LoginViewModel?
 
   init(presentViewController: UINavigationController) {
     self.presentViewController = presentViewController
   }
 
   func start() {
-    let loginViewController = LoginViewController()
+    let loginViewModel = LoginViewModel()
+    let loginViewController = LoginViewController(viewModel: loginViewModel)
     presentViewController.pushViewController(loginViewController, animated: true)
+
+    viewModel = loginViewModel
     viewController = loginViewController
   }
 }

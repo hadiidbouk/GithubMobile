@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReactiveSwift
+import ReactiveCocoa
 
 class LoginViewController: UIViewController {
 
@@ -52,7 +54,9 @@ class LoginViewController: UIViewController {
     return button
   }()
 
-  init() {
+  private let viewModel: LoginViewModelType
+  init(viewModel: LoginViewModelType) {
+    self.viewModel = viewModel
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -70,10 +74,15 @@ private extension LoginViewController {
   func setup() {
     setupView()
     setupConstraints()
+    setupBindings()
   }
 
   func setupView() {
     view.backgroundColor = AppColors.Login.backgroundColor
+  }
+
+  func setupBindings() {
+    loginButton.reactive.pressed = CocoaAction(viewModel.inputs.login)
   }
 }
 

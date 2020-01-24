@@ -19,6 +19,10 @@
 		0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */; };
 		0F9B3FB223DA5CBD00D79A72 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */; };
 		0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */; };
+		0FD6E01823DB23D30035A897 /* AuthConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6E01723DB23D30035A897 /* AuthConfig.plist */; };
+		0FD6E01A23DB26800035A897 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01923DB26800035A897 /* LoginViewModel.swift */; };
+		0FD6E01C23DB26920035A897 /* LoginViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */; };
+		0FD6E01F23DB2C7C0035A897 /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01E23DB2C7C0035A897 /* AuthConfig.swift */; };
 		9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		0FD6E01723DB23D30035A897 /* AuthConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AuthConfig.plist; sourceTree = "<group>"; };
+		0FD6E01923DB26800035A897 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelType.swift; sourceTree = "<group>"; };
+		0FD6E01E23DB2C7C0035A897 /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		540733E24EBEFB06C647CE96 /* Pods-GithubMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.release.xcconfig"; sourceTree = "<group>"; };
 		ABFDF5871E07AEE999847045 /* Pods-GithubMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile/Pods-GithubMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +132,8 @@
 			children = (
 				0F54214D23DA444A007F976C /* LoginViewController.swift */,
 				0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */,
+				0FD6E01923DB26800035A897 /* LoginViewModel.swift */,
+				0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -131,7 +141,8 @@
 		0F9B3FA323DA4B2A00D79A72 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0F54215223DA444B007F976C /* Assets.xcassets */,
+				0FD6E01D23DB2C5C0035A897 /* AuthConfig */,
+				0FD6E01623DB23B60035A897 /* Images */,
 				0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */,
 			);
 			path = Resources;
@@ -162,6 +173,23 @@
 				0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FD6E01623DB23B60035A897 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0F54215223DA444B007F976C /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0FD6E01D23DB2C5C0035A897 /* AuthConfig */ = {
+			isa = PBXGroup;
+			children = (
+				0FD6E01723DB23D30035A897 /* AuthConfig.plist */,
+				0FD6E01E23DB2C7C0035A897 /* AuthConfig.swift */,
+			);
+			path = AuthConfig;
 			sourceTree = "<group>";
 		};
 		C6E1D97F718C1ED3FF69F3D2 /* Pods */ = {
@@ -233,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD6E01823DB23D30035A897 /* AuthConfig.plist in Resources */,
 				0F54215323DA444B007F976C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,8 +321,11 @@
 				0F9B3FAB23DA541A00D79A72 /* Apply.swift in Sources */,
 				0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */,
 				0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */,
+				0FD6E01C23DB26920035A897 /* LoginViewModelType.swift in Sources */,
 				0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */,
 				0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */,
+				0FD6E01F23DB2C7C0035A897 /* AuthConfig.swift in Sources */,
+				0FD6E01A23DB26800035A897 /* LoginViewModel.swift in Sources */,
 				0F54214A23DA444A007F976C /* AppDelegate.swift in Sources */,
 				0F9B3FAD23DA544700D79A72 /* Reflection.swift in Sources */,
 				0F54214C23DA444A007F976C /* SceneDelegate.swift in Sources */,
