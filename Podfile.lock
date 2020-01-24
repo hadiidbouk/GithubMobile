@@ -1,21 +1,25 @@
 PODS:
+  - OAuthSwift (2.0.0)
   - ReactiveCocoa (10.2.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.2.0)
 
 DEPENDENCIES:
+  - OAuthSwift (~> 2.0.0)
   - ReactiveCocoa (~> 10.1)
   - ReactiveSwift (~> 6.1)
 
 SPEC REPOS:
   trunk:
+    - OAuthSwift
     - ReactiveCocoa
     - ReactiveSwift
 
 SPEC CHECKSUMS:
+  OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
   ReactiveCocoa: a123c42f449c552460a4ee217dd49c76a17c8204
   ReactiveSwift: 3dc8800378110b13d40b46ab362afa9f6bcffc6c
 
-PODFILE CHECKSUM: 05b99eca5bb6d53060fd1cf5ee2768f1d9261a6f
+PODFILE CHECKSUM: b3f13e9e4905b4691f562c1271a2f106921c50e0
 
 COCOAPODS: 1.8.4

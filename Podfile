@@ -8,6 +8,5 @@ target 'GithubMobile' do
   # Pods for GithubMobile
   pod 'ReactiveSwift', '~> 6.1'
   pod 'ReactiveCocoa', '~> 10.1'
-
-
+  pod 'OAuthSwift', '~> 2.0.0'
 end
