@@ -1,25 +1,33 @@
 PODS:
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
   - OAuthSwift (2.0.0)
   - ReactiveCocoa (10.2.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.2.0)
 
 DEPENDENCIES:
+  - IGListKit (~> 4.0.0)
   - OAuthSwift (~> 2.0.0)
   - ReactiveCocoa (~> 10.1)
   - ReactiveSwift (~> 6.1)
 
 SPEC REPOS:
   trunk:
+    - IGListDiffKit
+    - IGListKit
     - OAuthSwift
     - ReactiveCocoa
     - ReactiveSwift
 
 SPEC CHECKSUMS:
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
   ReactiveCocoa: a123c42f449c552460a4ee217dd49c76a17c8204
   ReactiveSwift: 3dc8800378110b13d40b46ab362afa9f6bcffc6c
 
-PODFILE CHECKSUM: b3f13e9e4905b4691f562c1271a2f106921c50e0
+PODFILE CHECKSUM: 6f6c395f1e7406b72ddae87accf62a28630fc458
 
 COCOAPODS: 1.8.4

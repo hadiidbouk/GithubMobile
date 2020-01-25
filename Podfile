@@ -9,4 +9,5 @@ target 'GithubMobile' do
   pod 'ReactiveSwift', '~> 6.1'
   pod 'ReactiveCocoa', '~> 10.1'
   pod 'OAuthSwift', '~> 2.0.0'
+  pod 'IGListKit', '~> 4.0.0'
 end
