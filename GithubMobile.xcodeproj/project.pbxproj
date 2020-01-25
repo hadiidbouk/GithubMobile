@@ -26,12 +26,28 @@
 		0FCD24AF23DCE8180066B4F4 /* FeedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24AE23DCE8180066B4F4 /* FeedSectionController.swift */; };
 		0FCD24B123DCE8640066B4F4 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24B023DCE8640066B4F4 /* FeedCollectionViewCell.swift */; };
 		0FCD24B323DCE9B80066B4F4 /* FeedSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24B223DCE9B80066B4F4 /* FeedSectionModel.swift */; };
+		0FCD251023DD01BE0066B4F4 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCD250F23DD01BE0066B4F4 /* Domain.framework */; };
+		0FCD251123DD01BE0066B4F4 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0FCD250F23DD01BE0066B4F4 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0FD6E01823DB23D30035A897 /* AuthConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6E01723DB23D30035A897 /* AuthConfig.plist */; };
 		0FD6E01A23DB26800035A897 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01923DB26800035A897 /* LoginViewModel.swift */; };
 		0FD6E01C23DB26920035A897 /* LoginViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */; };
 		0FD6E01F23DB2C7C0035A897 /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01E23DB2C7C0035A897 /* AuthConfig.swift */; };
 		9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0FCD251223DD01BE0066B4F4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0FCD251123DD01BE0066B4F4 /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F54214623DA444A007F976C /* GithubMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +71,8 @@
 		0FCD24AE23DCE8180066B4F4 /* FeedSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionController.swift; sourceTree = "<group>"; };
 		0FCD24B023DCE8640066B4F4 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FCD24B223DCE9B80066B4F4 /* FeedSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionModel.swift; sourceTree = "<group>"; };
+		0FCD24FD23DCF9FB0066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FCD250F23DD01BE0066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD6E01723DB23D30035A897 /* AuthConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AuthConfig.plist; sourceTree = "<group>"; };
 		0FD6E01923DB26800035A897 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelType.swift; sourceTree = "<group>"; };
@@ -69,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FCD251023DD01BE0066B4F4 /* Domain.framework in Frameworks */,
 				9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +98,8 @@
 		0F339C6F64FA707BCFB98D20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FCD250F23DD01BE0066B4F4 /* Domain.framework */,
+				0FCD24FD23DCF9FB0066B4F4 /* Domain.framework */,
 				BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */,
 			);
 			name = Frameworks;
@@ -250,6 +271,7 @@
 				0F54214323DA444A007F976C /* Frameworks */,
 				0F54214423DA444A007F976C /* Resources */,
 				FD39E6B7B3804498E010588C /* [CP] Embed Pods Frameworks */,
+				0FCD251223DD01BE0066B4F4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
