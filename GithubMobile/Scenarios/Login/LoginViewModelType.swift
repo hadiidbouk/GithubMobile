@@ -11,6 +11,7 @@ import OAuthSwift
 
 protocol LoginViewModelTypeInputs {
   var login: Action<Void, OAuth2Swift, Never> { get }
+  var loginBrowserDismissed: MutableProperty<Bool> { get }
 }
 
 protocol LoginViewModelTypeOutputs {

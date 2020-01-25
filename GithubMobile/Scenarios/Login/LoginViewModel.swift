@@ -12,9 +12,12 @@ import OAuthSwift
 class LoginViewModel: LoginViewModelType, LoginViewModelTypeInputs, LoginViewModelTypeOutputs {
   var login: Action<Void, OAuth2Swift, Never>
   var isLoading: Property<Bool>
+  var loginBrowserDismissed = MutableProperty<Bool>(false)
 
   var inputs: LoginViewModelTypeInputs { return self }
   var outputs: LoginViewModelTypeOutputs { return self }
+
+  private let mutableIsLoading = MutableProperty<Bool>(false)
 
   init(authConfig: AuthConfig = AuthConfig()) {
     login = Action {
@@ -26,6 +29,8 @@ class LoginViewModel: LoginViewModelType, LoginViewModelTypeInputs, LoginViewMod
       return SignalProducer(value: oauthswift)
     }
 
-    isLoading = Property(initial: false, then: login.values.map(value: true))
+    mutableIsLoading <~ login.values.map(value: true)
+    isLoading = Property(mutableIsLoading)
+    mutableIsLoading <~ loginBrowserDismissed.map(value: false)
   }
 }

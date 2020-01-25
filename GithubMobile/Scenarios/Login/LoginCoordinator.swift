@@ -11,7 +11,7 @@ import SafariServices
 import ReactiveSwift
 import OAuthSwift
 
-class LoginCoordinator: Coordinator {
+class LoginCoordinator: NSObject, Coordinator {
   var childCoordinators: [Coordinator] = []
 
   private var viewController: LoginViewController?
@@ -51,7 +51,9 @@ private extension LoginCoordinator {
       let redirectUri = URL(string: authConfig.redirectUri) else {
       return
     }
-    oauthSwift.authorizeURLHandler = SafariURLHandler(viewController: viewController, oauthSwift: oauthSwift)
+    let safariHandler = SafariURLHandler(viewController: viewController, oauthSwift: oauthSwift)
+    safariHandler.delegate = self
+    oauthSwift.authorizeURLHandler = safariHandler
     let state = generateState(withLength: 20)
     let _ = oauthSwift.authorize(withCallbackURL: redirectUri, scope: authConfig.scope, state: state) {[weak self] result in
         switch result {
@@ -63,6 +65,12 @@ private extension LoginCoordinator {
         }
     }
     self.oauthSwift = oauthSwift
+  }
+}
+
+extension LoginCoordinator: SFSafariViewControllerDelegate {
+  func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+    self.viewModel?.inputs.loginBrowserDismissed.value = true
   }
 }
 
