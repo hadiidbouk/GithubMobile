@@ -54,6 +54,12 @@ class LoginViewController: UIViewController {
     return button
   }()
 
+  private lazy var loadingView: LoadingView = {
+    let loadingView = LoadingView()
+    view.addSubview(loadingView)
+    return loadingView
+  }()
+
   private let viewModel: LoginViewModelType
   init(viewModel: LoginViewModelType) {
     self.viewModel = viewModel
@@ -83,6 +89,7 @@ private extension LoginViewController {
 
   func setupBindings() {
     loginButton.reactive.pressed = CocoaAction(viewModel.inputs.login)
+    loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
   }
 }
 
@@ -93,6 +100,7 @@ private extension LoginViewController {
     setupTitleLabelConstraints()
     setupDividerViewConstraints()
     setupLoginButtonConstraints()
+    setupLoadingViewConstraints()
   }
 
   func setupContentViewConstraints() {
@@ -127,6 +135,12 @@ private extension LoginViewController {
       $0.heightConstraint(constant: 40)
       $0.centerToParentHorizontal()
       $0.centerToParentVertical(constant: 30)
+    }
+  }
+
+  func setupLoadingViewConstraints() {
+    loadingView.apply {
+      $0.stickToParentEdges()
     }
   }
 }

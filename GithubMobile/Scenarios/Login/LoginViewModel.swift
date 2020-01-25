@@ -11,6 +11,7 @@ import OAuthSwift
 
 class LoginViewModel: LoginViewModelType, LoginViewModelTypeInputs, LoginViewModelTypeOutputs {
   var login: Action<Void, OAuth2Swift, Never>
+  var isLoading: Property<Bool>
 
   var inputs: LoginViewModelTypeInputs { return self }
   var outputs: LoginViewModelTypeOutputs { return self }
@@ -24,5 +25,7 @@ class LoginViewModel: LoginViewModelType, LoginViewModelTypeInputs, LoginViewMod
                                    responseType: authConfig.responseType)
       return SignalProducer(value: oauthswift)
     }
+
+    isLoading = Property(initial: false, then: login.values.map(value: true))
   }
 }

@@ -13,7 +13,9 @@ protocol LoginViewModelTypeInputs {
   var login: Action<Void, OAuth2Swift, Never> { get }
 }
 
-protocol LoginViewModelTypeOutputs {}
+protocol LoginViewModelTypeOutputs {
+  var isLoading: Property<Bool> { get }
+}
 
 protocol LoginViewModelType {
   var inputs: LoginViewModelTypeInputs { get }
