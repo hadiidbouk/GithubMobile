@@ -5,6 +5,9 @@
       location = "group:GithubMobile.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Platform/Platform.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Domain/Domain.xcodeproj">
    </FileRef>
    <FileRef

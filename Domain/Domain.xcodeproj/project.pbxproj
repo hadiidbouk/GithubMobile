@@ -12,9 +12,11 @@
 		0FCD250523DCFC1B0066B4F4 /* EventActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250423DCFC1B0066B4F4 /* EventActor.swift */; };
 		0FCD250923DCFE020066B4F4 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250823DCFE020066B4F4 /* EventRepository.swift */; };
 		0FCD250B23DCFE620066B4F4 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250A23DCFE620066B4F4 /* Identifiable.swift */; };
+		6E28DF92B0A8BFA4CB00DDC3 /* Pods_GithubMobile_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD24EF23DCF9970066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD24FA23DCF9E40066B4F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0FCD250123DCFAA80066B4F4 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		0FCD250823DCFE020066B4F4 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		0FCD250A23DCFE620066B4F4 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
 		0FCD250D23DD011B0066B4F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C27F627D304C4616CCEA925 /* Pods-GithubMobile-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile-Domain.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile-Domain/Pods-GithubMobile-Domain.release.xcconfig"; sourceTree = "<group>"; };
+		D94F154E1426F3E54C828791 /* Pods-GithubMobile-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile-Domain.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile-Domain/Pods-GithubMobile-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E28DF92B0A8BFA4CB00DDC3 /* Pods_GithubMobile_Domain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C721CDC393F430BF7D46B9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0FCD24E523DCF9970066B4F4 = {
 			isa = PBXGroup;
 			children = (
 				0FCD24F123DCF9970066B4F4 /* Domain */,
 				0FCD24F023DCF9970066B4F4 /* Products */,
+				4EF52E44540AD8100BF5E885 /* Pods */,
+				0C721CDC393F430BF7D46B9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +95,16 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		4EF52E44540AD8100BF5E885 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D94F154E1426F3E54C828791 /* Pods-GithubMobile-Domain.debug.xcconfig */,
+				6C27F627D304C4616CCEA925 /* Pods-GithubMobile-Domain.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -97,6 +122,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FCD24F723DCF9970066B4F4 /* Build configuration list for PBXNativeTarget "Domain" */;
 			buildPhases = (
+				40BF9491118A14487AE5599D /* [CP] Check Pods Manifest.lock */,
 				0FCD24EA23DCF9970066B4F4 /* Headers */,
 				0FCD24EB23DCF9970066B4F4 /* Sources */,
 				0FCD24EC23DCF9970066B4F4 /* Frameworks */,
@@ -153,6 +179,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		40BF9491118A14487AE5599D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GithubMobile-Domain-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0FCD24EB23DCF9970066B4F4 /* Sources */ = {
@@ -292,6 +343,7 @@
 		};
 		0FCD24F823DCF9970066B4F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D94F154E1426F3E54C828791 /* Pods-GithubMobile-Domain.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -318,6 +370,7 @@
 		};
 		0FCD24F923DCF9970066B4F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C27F627D304C4616CCEA925 /* Pods-GithubMobile-Domain.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
