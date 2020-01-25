@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import IGListKit
 
 class FeedViewController: UIViewController {
+
+  private lazy var collectionView: UICollectionView = {
+    let layout = UICollectionViewFlowLayout()
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .yellow
+    view.addSubview(collectionView)
+    return collectionView
+  }()
+
+  private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
 
   init() {
     super.init(nibName: nil, bundle: nil)
@@ -21,5 +32,49 @@ class FeedViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .blue
+    setup()
+
+  }
+}
+
+extension FeedViewController: ListAdapterDataSource {
+  func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+    // this can be anything!
+    return [ FeedSectionModel(id: "id1", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id2", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id3", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork) ]
+  }
+
+  func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+    return FeedSectionController()
+  }
+
+  func emptyView(for listAdapter: ListAdapter) -> UIView? {
+    return nil
+  }
+}
+
+private extension FeedViewController {
+  func setup() {
+    configureListAdapter()
+    setupConstraints()
+  }
+
+  func configureListAdapter() {
+    adapter.collectionView = collectionView
+    adapter.dataSource = self
+  }
+}
+
+// MARK: - Constraints
+private extension FeedViewController {
+  func setupConstraints() {
+    setupCollectionViewConstraints()
+  }
+
+  func setupCollectionViewConstraints() {
+    collectionView.apply {
+      $0.stickToParentEdges()
+    }
   }
 }
