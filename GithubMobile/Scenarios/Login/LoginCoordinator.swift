@@ -13,6 +13,8 @@ import OAuthSwift
 import AuthenticationServices
 
 class LoginCoordinator: Coordinator {
+  var childCoordinators: [Coordinator] = []
+
   private var viewController: LoginViewController?
   private var viewModel: LoginViewModel?
   private var oauthSwift: OAuth2Swift?
@@ -36,6 +38,12 @@ class LoginCoordinator: Coordinator {
 
     reactive.login <~ loginViewModel.login.values
   }
+
+  func feed() {
+    let feedCoordinator = FeedCoordinator(presentViewController: presentViewController)
+    feedCoordinator.start()
+    childCoordinators.append(feedCoordinator)
+  }
 }
 
 private extension LoginCoordinator {
@@ -45,12 +53,13 @@ private extension LoginCoordinator {
       return
     }
     oauthSwift.authorizeURLHandler = SafariURLHandler(viewController: viewController, oauthSwift: oauthSwift)
-    let _ = oauthSwift.authorize(withCallbackURL: redirectUri, scope: authConfig.scope, state: generateState(withLength: 20)) { result in
+    let state = generateState(withLength: 20)
+    let _ = oauthSwift.authorize(withCallbackURL: redirectUri, scope: authConfig.scope, state: state) {[weak self] result in
         switch result {
         case .success(let a):
-            print(a)
+          self?.feed()
         case .failure(let error):
-            print(error.description)
+          print(error.description)
         }
     }
     self.oauthSwift = oauthSwift

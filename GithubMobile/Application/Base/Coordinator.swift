@@ -9,5 +9,6 @@
 import ReactiveSwift
 
 protocol Coordinator: ReactiveExtensionsProvider {
-    func start()
+  var childCoordinators: [Coordinator] { get }
+  func start()
 }

@@ -9,6 +9,8 @@
 import UIKit
 
 class AppCoordinator: Coordinator {
+  var childCoordinators: [Coordinator] = []
+
   let window: UIWindow
   let rootViewController: UINavigationController
   let loginCoordinator: LoginCoordinator
