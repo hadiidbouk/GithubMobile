@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class FeedCoordinator: Coordinator {
 
@@ -15,9 +16,11 @@ class FeedCoordinator: Coordinator {
   private var viewController: FeedViewController?
 
   private let presentViewController: UINavigationController
+  private let credential: OAuthSwiftCredential
 
-  init(presentViewController: UINavigationController) {
+  init(presentViewController: UINavigationController, credential: OAuthSwiftCredential) {
     self.presentViewController = presentViewController
+    self.credential = credential
   }
 
   func start() {

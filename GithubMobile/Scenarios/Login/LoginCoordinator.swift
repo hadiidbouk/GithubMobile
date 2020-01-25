@@ -10,7 +10,6 @@ import UIKit
 import SafariServices
 import ReactiveSwift
 import OAuthSwift
-import AuthenticationServices
 
 class LoginCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
@@ -39,8 +38,8 @@ class LoginCoordinator: Coordinator {
     reactive.login <~ loginViewModel.login.values
   }
 
-  func feed() {
-    let feedCoordinator = FeedCoordinator(presentViewController: presentViewController)
+  func feed(credential: OAuthSwiftCredential) {
+    let feedCoordinator = FeedCoordinator(presentViewController: presentViewController, credential: credential)
     feedCoordinator.start()
     childCoordinators.append(feedCoordinator)
   }
@@ -58,7 +57,7 @@ private extension LoginCoordinator {
         switch result {
         case .success(let oauthSwift):
           oauthSwift.credential.save()
-          self?.feed()
+          self?.feed(credential: oauthSwift.credential)
         case .failure(let error):
           print(error.description)
         }

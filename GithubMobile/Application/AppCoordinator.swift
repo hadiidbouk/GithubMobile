@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class AppCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
 
   let window: UIWindow
   let rootViewController: UINavigationController
-  let loginCoordinator: LoginCoordinator
 
   init(window: UIWindow) {
     self.window = window
     rootViewController = UINavigationController()
     rootViewController.setNavigationBarHidden(true, animated: false)
-    loginCoordinator = LoginCoordinator(presentViewController: rootViewController)
   }
 
   func start() {
     window.rootViewController = rootViewController
-    loginCoordinator.start()
+
+    if let credential = OAuthSwiftCredential.load() {
+      feed(credential: credential)
+    } else {
+      login()
+    }
+
     window.makeKeyAndVisible()
+  }
+}
+
+private extension AppCoordinator {
+  func login() {
+    let loginCoordinator = LoginCoordinator(presentViewController: rootViewController)
+    loginCoordinator.start()
+    childCoordinators.append(loginCoordinator)
+  }
+
+  func feed(credential: OAuthSwiftCredential) {
+    let feedCoordinator = FeedCoordinator(presentViewController: rootViewController, credential: credential)
+    feedCoordinator.start()
+    childCoordinators.append(feedCoordinator)
   }
 }
