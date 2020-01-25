@@ -21,6 +21,7 @@
 		0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */; };
 		0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A323DC95500066B4F4 /* FeedViewController.swift */; };
 		0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */; };
+		0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */; };
 		0FD6E01823DB23D30035A897 /* AuthConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FD6E01723DB23D30035A897 /* AuthConfig.plist */; };
 		0FD6E01A23DB26800035A897 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01923DB26800035A897 /* LoginViewModel.swift */; };
 		0FD6E01C23DB26920035A897 /* LoginViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */; };
@@ -45,6 +46,7 @@
 		0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		0FCD24A323DC95500066B4F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OAuthSwiftCredential+Extensions.swift"; sourceTree = "<group>"; };
 		0FD6E01723DB23D30035A897 /* AuthConfig.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AuthConfig.plist; sourceTree = "<group>"; };
 		0FD6E01923DB26800035A897 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0FD6E01B23DB26920035A897 /* LoginViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelType.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */,
 				0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */,
+				0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */,
 				0F9B3FB223DA5CBD00D79A72 /* UIColor+Extensions.swift in Sources */,
+				0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */,
 				0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */,
 				0F9B3FAB23DA541A00D79A72 /* Apply.swift in Sources */,
 				0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */,
