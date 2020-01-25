@@ -56,7 +56,8 @@ private extension LoginCoordinator {
     let state = generateState(withLength: 20)
     let _ = oauthSwift.authorize(withCallbackURL: redirectUri, scope: authConfig.scope, state: state) {[weak self] result in
         switch result {
-        case .success(let a):
+        case .success(let oauthSwift):
+          oauthSwift.credential.save()
           self?.feed()
         case .failure(let error):
           print(error.description)
