@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,14 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     appCoordinator?.start()
   }
 
-  func sceneDidDisconnect(_ scene: UIScene) {}
-
-  func sceneDidBecomeActive(_ scene: UIScene) {}
-
-  func sceneWillResignActive(_ scene: UIScene) {}
-
-  func sceneWillEnterForeground(_ scene: UIScene) {}
-
-  func sceneDidEnterBackground(_ scene: UIScene) {}
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else {
+      return
+    }
+    let authConfig = AuthConfig()
+    if (url.absoluteString.starts(with: authConfig.redirectUri)) {
+      OAuthSwift.handle(url: url)
+    }
+  }
 }
 

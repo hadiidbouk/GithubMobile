@@ -14,7 +14,9 @@ class AuthConfig {
   let clientSecret: String
   let redirectUri: String
   let scope: String
-  let tokenUrl: String
+  let accessTokenUrl: String
+  let authorizeUrl: String
+  let responseType: String
 
   init(plistURL: URL? = nil) {
     var authConfigURL: URL?
@@ -44,14 +46,11 @@ class AuthConfig {
       clientSecret = authConfigDict["clientSecret"] as! String
       redirectUri = authConfigDict["redirectUri"] as! String
       scope = authConfigDict["scope"] as! String
-      tokenUrl = authConfigDict["tokenUrl"] as! String
-
+      accessTokenUrl = authConfigDict["accessTokenUrl"] as! String
+      authorizeUrl = authConfigDict["authorizeUrl"] as! String
+      responseType = authConfigDict["responseType"] as! String
     } catch {
       fatalError("Cannot get the properties from the auth config plist.")
     }
-  }
-
-  func generateUrl() -> String {
-    return "https://github.com/login/oauth/authorize?client_id=" + clientId + "&scope=" + scope + "&redirect_uri=" + redirectUri + "&state=" + UUID().uuidString
   }
 }

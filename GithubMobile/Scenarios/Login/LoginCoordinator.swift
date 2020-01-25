@@ -9,14 +9,21 @@
 import UIKit
 import SafariServices
 import ReactiveSwift
+import OAuthSwift
+import AuthenticationServices
 
 class LoginCoordinator: Coordinator {
-  private let presentViewController: UINavigationController
   private var viewController: LoginViewController?
   private var viewModel: LoginViewModel?
+  private var oauthSwift: OAuth2Swift?
 
-  init(presentViewController: UINavigationController) {
+  private let presentViewController: UINavigationController
+  private let authConfig: AuthConfig
+
+  init(presentViewController: UINavigationController,
+       authConfig: AuthConfig = AuthConfig()) {
     self.presentViewController = presentViewController
+    self.authConfig = authConfig
   }
 
   func start() {
@@ -27,24 +34,33 @@ class LoginCoordinator: Coordinator {
     viewModel = loginViewModel
     viewController = loginViewController
 
-    reactive.shouldOpenSafari <~ loginViewModel.login.values
+    reactive.login <~ loginViewModel.login.values
   }
 }
 
 private extension LoginCoordinator {
-  func openSafari(urlString: String) {
-    guard let url = URL(string: urlString) else {
+  func login(oauthSwift: OAuth2Swift) {
+    guard let viewController = viewController,
+      let redirectUri = URL(string: authConfig.redirectUri) else {
       return
     }
-    let safariViewController = SFSafariViewController(url: url)
-    viewController?.present(safariViewController, animated: true, completion: nil)
+    oauthSwift.authorizeURLHandler = SafariURLHandler(viewController: viewController, oauthSwift: oauthSwift)
+    let _ = oauthSwift.authorize(withCallbackURL: redirectUri, scope: authConfig.scope, state: generateState(withLength: 20)) { result in
+        switch result {
+        case .success(let a):
+            print(a)
+        case .failure(let error):
+            print(error.description)
+        }
+    }
+    self.oauthSwift = oauthSwift
   }
 }
 
 private extension Reactive where Base: LoginCoordinator {
-  var shouldOpenSafari: BindingTarget<String> {
-    return makeBindingTarget { base, urlString in
-      base.openSafari(urlString: urlString)
+  var login: BindingTarget<OAuth2Swift> {
+    return makeBindingTarget { base, oauthSwift in
+      base.login(oauthSwift: oauthSwift)
     }
   }
 }

@@ -7,9 +7,10 @@
 //
 
 import ReactiveSwift
+import OAuthSwift
 
 protocol LoginViewModelTypeInputs {
-  var login: Action<Void, String, Never> { get }
+  var login: Action<Void, OAuth2Swift, Never> { get }
 }
 
 protocol LoginViewModelTypeOutputs {}
