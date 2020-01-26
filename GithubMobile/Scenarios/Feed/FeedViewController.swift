@@ -8,6 +8,7 @@
 
 import UIKit
 import IGListKit
+import ReactiveSwift
 
 class FeedViewController: BaseViewController {
 
@@ -19,9 +20,18 @@ class FeedViewController: BaseViewController {
     return collectionView
   }()
 
+  private lazy var loadingView: LoadingView = {
+    let loadingView = LoadingView()
+    view.addSubview(loadingView)
+    return loadingView
+  }()
+
   private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
 
-  override init() {
+  private let viewModel: FeedViewModelType
+
+  init(viewModel: FeedViewModelType) {
+    self.viewModel = viewModel
     super.init()
   }
 
@@ -33,7 +43,6 @@ class FeedViewController: BaseViewController {
     super.viewDidLoad()
     view.backgroundColor = .blue
     setup()
-
   }
 }
 
@@ -58,11 +67,18 @@ private extension FeedViewController {
   func setup() {
     configureListAdapter()
     setupConstraints()
+    setupBindings()
   }
 
   func configureListAdapter() {
     adapter.collectionView = collectionView
     adapter.dataSource = self
+  }
+
+  func setupBindings() {
+    viewModel.inputs.isVisible <~ isVisible
+
+    loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
   }
 }
 
@@ -70,10 +86,17 @@ private extension FeedViewController {
 private extension FeedViewController {
   func setupConstraints() {
     setupCollectionViewConstraints()
+    setupLoadingViewConstraints()
   }
 
   func setupCollectionViewConstraints() {
     collectionView.apply {
+      $0.stickToParentEdges()
+    }
+  }
+
+  func setupLoadingViewConstraints() {
+    loadingView.apply {
       $0.stickToParentEdges()
     }
   }

@@ -27,7 +27,12 @@ class FeedCoordinator: Coordinator {
   }
 
   func start() {
-    let feedViewController = FeedViewController()
+    guard let oauth = OAuthSwiftCredential.load() else {
+      return
+    }
+    let viewModel = FeedViewModel(token: oauth.oauthToken,
+                                  getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase())
+    let feedViewController = FeedViewController(viewModel: viewModel)
     presentViewController.pushViewController(feedViewController, animated: true)
     viewController = feedViewController
   }
