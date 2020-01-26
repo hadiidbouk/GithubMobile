@@ -18,6 +18,7 @@
 		0F8DA42E23DDF56900ABF254 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA42D23DDF56900ABF254 /* BaseViewController.swift */; };
 		0F8DA43623DE1A7600ABF254 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43523DE1A7600ABF254 /* NavigationBarView.swift */; };
 		0F8DA43823DE1BAF00ABF254 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43723DE1BAF00ABF254 /* UIApplication+Extensions.swift */; };
+		0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */; };
 		0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */; };
 		0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */; };
 		0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */; };
@@ -70,6 +71,7 @@
 		0F8DA42D23DDF56900ABF254 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0F8DA43523DE1A7600ABF254 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		0F8DA43723DE1BAF00ABF254 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */,
 				0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */,
 				0F8DA43723DE1BAF00ABF254 /* UIApplication+Extensions.swift */,
+				0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				0F8DA42C23DDF49500ABF254 /* FeedViewModel.swift in Sources */,
 				0F8DA42A23DDF40C00ABF254 /* FeedViewModelType.swift in Sources */,
 				0F8DA43623DE1A7600ABF254 /* NavigationBarView.swift in Sources */,
+				0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */,
 				0FCD24AF23DCE8180066B4F4 /* FeedSectionController.swift in Sources */,
 				0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */,
 				0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */,

@@ -24,6 +24,9 @@ struct AppColors {
     static let cellShadowColor = UIColor(hex: "#c2c2c2")
     static let cellBorderColor = UIColor(hex: "#d6d6d6")
     static let cellBackgroundColor = UIColor(hex: "#ffffff")
+    static let cellUsernameLabelTextColor = UIColor(hex: "#C4B464")
+    static let cellTimeAgoLabelTextColor = UIColor(hex: "#5B5A55")
+    static let cellDescriptionLabelTextColor = UIColor(hex: "#000000")
   }
 
   struct Shared {

@@ -10,7 +10,7 @@ import IGListKit
 
 class FeedSectionController: ListSectionController {
   override func sizeForItem(at index: Int) -> CGSize {
-    return CGSize(width: collectionContext!.containerSize.width, height: 100)
+    return CGSize(width: collectionContext!.containerSize.width, height: 120)
   }
 
   override func cellForItem(at index: Int) -> UICollectionViewCell {
