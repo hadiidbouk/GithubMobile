@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F8DA3E323DDAAC600ABF254 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA3E223DDAAC600ABF254 /* User.swift */; };
+		0F8DA3E823DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA3E723DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift */; };
+		0F8DA3EA23DDB1CA00ABF254 /* UseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA3E923DDB1CA00ABF254 /* UseCaseProvider.swift */; };
 		0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24FA23DCF9E40066B4F4 /* Event.swift */; };
 		0FCD250223DCFAA80066B4F4 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250123DCFAA80066B4F4 /* EventType.swift */; };
 		0FCD250523DCFC1B0066B4F4 /* EventActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250423DCFC1B0066B4F4 /* EventActor.swift */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F8DA3E223DDAAC600ABF254 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0F8DA3E723DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthenticatedUserUseCase.swift; sourceTree = "<group>"; };
+		0F8DA3E923DDB1CA00ABF254 /* UseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProvider.swift; sourceTree = "<group>"; };
 		0FCD24EF23DCF9970066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD24FA23DCF9E40066B4F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0FCD250123DCFAA80066B4F4 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
@@ -50,6 +54,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		0F8DA3E623DDB06B00ABF254 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				0F8DA3E723DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift */,
+				0F8DA3E923DDB1CA00ABF254 /* UseCaseProvider.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		0FCD24E523DCF9970066B4F4 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +84,7 @@
 		0FCD24F123DCF9970066B4F4 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				0F8DA3E623DDB06B00ABF254 /* UseCases */,
 				0FCD250323DCFC0B0066B4F4 /* Enums */,
 				0FCD24FC23DCF9E70066B4F4 /* Models */,
 				0FCD250A23DCFE620066B4F4 /* Identifiable.swift */,
@@ -213,9 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8DA3E823DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift in Sources */,
 				0FCD250523DCFC1B0066B4F4 /* EventActor.swift in Sources */,
 				0FCD250223DCFAA80066B4F4 /* EventType.swift in Sources */,
 				0F8DA3E323DDAAC600ABF254 /* User.swift in Sources */,
+				0F8DA3EA23DDB1CA00ABF254 /* UseCaseProvider.swift in Sources */,
 				0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */,
 				0FCD250B23DCFE620066B4F4 /* Identifiable.swift in Sources */,
 				0FCD250923DCFE020066B4F4 /* EventRepository.swift in Sources */,
