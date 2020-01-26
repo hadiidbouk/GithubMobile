@@ -16,4 +16,9 @@ extension TargetType {
 
     return data
   }
+
+  var apiBaseURL: URL {
+    let baseUrlString = "https://api.github.com"
+    return URL(string: baseUrlString)!
+  }
 }
