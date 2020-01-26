@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import ReactiveSwift
 import OAuthSwift
+import Domain
 
 class LoginCoordinator: NSObject, Coordinator {
   var childCoordinators: [Coordinator] = []
@@ -20,10 +21,13 @@ class LoginCoordinator: NSObject, Coordinator {
 
   private let presentViewController: UINavigationController
   private let authConfig: AuthConfig
+  private let useCaseProvider: UseCaseProvider
 
   init(presentViewController: UINavigationController,
+       useCaseProvider: UseCaseProvider,
        authConfig: AuthConfig = AuthConfig()) {
     self.presentViewController = presentViewController
+    self.useCaseProvider = useCaseProvider
     self.authConfig = authConfig
   }
 
@@ -39,7 +43,7 @@ class LoginCoordinator: NSObject, Coordinator {
   }
 
   func feed(credential: OAuthSwiftCredential) {
-    let feedCoordinator = FeedCoordinator(presentViewController: presentViewController, credential: credential)
+    let feedCoordinator = FeedCoordinator(presentViewController: presentViewController, credential: credential, useCaseProvider: useCaseProvider)
     feedCoordinator.start()
     childCoordinators.append(feedCoordinator)
   }

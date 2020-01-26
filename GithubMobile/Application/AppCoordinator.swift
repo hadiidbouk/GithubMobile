@@ -8,15 +8,19 @@
 
 import UIKit
 import OAuthSwift
+import Platform
+import XCGLogger
 
 class AppCoordinator: Coordinator {
   var childCoordinators: [Coordinator] = []
 
   let window: UIWindow
   let rootViewController: UINavigationController
+  let logger: XCGLogger?
 
-  init(window: UIWindow) {
+  init(window: UIWindow, logger: XCGLogger?) {
     self.window = window
+    self.logger = logger
     rootViewController = UINavigationController()
     rootViewController.setNavigationBarHidden(true, animated: false)
   }
@@ -36,13 +40,13 @@ class AppCoordinator: Coordinator {
 
 private extension AppCoordinator {
   func login() {
-    let loginCoordinator = LoginCoordinator(presentViewController: rootViewController)
+    let loginCoordinator = LoginCoordinator(presentViewController: rootViewController, useCaseProvider: UseCaseProvider(logger: logger))
     loginCoordinator.start()
     childCoordinators.append(loginCoordinator)
   }
 
   func feed(credential: OAuthSwiftCredential) {
-    let feedCoordinator = FeedCoordinator(presentViewController: rootViewController, credential: credential)
+    let feedCoordinator = FeedCoordinator(presentViewController: rootViewController, credential: credential, useCaseProvider: UseCaseProvider(logger: logger))
     feedCoordinator.start()
     childCoordinators.append(feedCoordinator)
   }
