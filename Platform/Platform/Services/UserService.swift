@@ -10,6 +10,7 @@ import Moya
 
 enum UserService {
   case getAuthenticatedUser(token: String)
+  case getReceivedEvents(token: String, username: String)
 }
 
 extension UserService: TargetType {
@@ -18,31 +19,36 @@ extension UserService: TargetType {
   
   var path: String {
     switch self {
-    case .getAuthenticatedUser: return "/user"
+    case .getAuthenticatedUser:               return "/user"
+    case .getReceivedEvents(_, let username): return "/users/\(username)/received_events"
     }
   }
   
   var method: Method {
     switch self {
-    case .getAuthenticatedUser: return .get
+    case .getAuthenticatedUser,
+         .getReceivedEvents: return .get
     }
   }
   
   var task: Task {
     switch self {
-    case .getAuthenticatedUser: return .requestPlain
+    case .getAuthenticatedUser,
+         .getReceivedEvents: return .requestPlain
     }
   }
-  
+
   var headers: [String : String]? {
     switch self {
-    case .getAuthenticatedUser(let token): return requestHeaders(token: token)
+    case .getAuthenticatedUser(let token),
+         .getReceivedEvents(let token, _): return requestHeaders(token: token)
     }
   }
   
   var sampleData: Data {
     switch self {
     case .getAuthenticatedUser: return sampleData(from: UserResponse.sample)
+    case .getReceivedEvents:    return sampleData(from: EventResponse.sample)
     }
   }
 }

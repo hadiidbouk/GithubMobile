@@ -15,13 +15,16 @@ class UsersRepository {
   private let logger: XCGLogger?
   private let provider: MoyaProvider<UserService>
   private let userConverter: UserConverter
+  private let eventConverter: EventConverter
 
   init(provider: MoyaProvider<UserService> = MoyaProvider<UserService>(),
        logger: XCGLogger? = nil,
-       userConverter: UserConverter = UserConverter()) {
+       userConverter: UserConverter = UserConverter(),
+       eventConverter: EventConverter = EventConverter()) {
     self.provider = provider
     self.logger = logger
     self.userConverter = userConverter
+    self.eventConverter = eventConverter
   }
 
   func getAuthenticatedUser(token: String) -> SignalProducer<User, Error> {
@@ -30,5 +33,13 @@ class UsersRepository {
       .on(failed: { [weak self] error in
         self?.logger?.error("Unable to get authenticated user. Error: \(error)")
       })
+  }
+
+  func getReceivedEvents(token: String, username: String) -> SignalProducer<Event, Error> {
+    return provider.defaultRequest(.getReceivedEvents(token: token, username: username), of: EventResponse.self)
+         .map(eventConverter.from)
+         .on(failed: { [weak self] error in
+           self?.logger?.error("Unable to get received events. Error: \(error)")
+         })
   }
 }

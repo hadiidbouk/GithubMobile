@@ -38,7 +38,7 @@ struct EventResponse: Decodable {
 
 extension EventResponse {
   struct Actor: Decodable {
-    let id: EventActor.Identifier
+    let id: Event.Actor.Identifier
     let login: String
     let displayLogin: String
     let gravatarId: String
@@ -56,7 +56,7 @@ extension EventResponse {
 
     init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: CodingKeys.self)
-      self.id = try container.decode(EventActor.Identifier.self, forKey: .id)
+      self.id = try container.decode(Event.Actor.Identifier.self, forKey: .id)
       self.login = try container.decode(String.self, forKey: .login)
       self.displayLogin = try container.decode(String.self, forKey: .displayLogin)
       self.gravatarId = try container.decode(String.self, forKey: .gravatarId)
@@ -66,7 +66,7 @@ extension EventResponse {
   }
 
   struct Repository: Decodable {
-    let id: EventRepositroy.Identifier
+    let id: Event.Repositroy.Identifier
     let name: String
     let url: String
   }
