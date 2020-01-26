@@ -8,7 +8,7 @@
 
 import IGListKit
 
-class FeedSectionController: ListSectionController {
+class FeedSectionController: ListGenericSectionController<FeedSectionModel> {
   override func sizeForItem(at index: Int) -> CGSize {
     return CGSize(width: collectionContext!.containerSize.width, height: 120)
   }
