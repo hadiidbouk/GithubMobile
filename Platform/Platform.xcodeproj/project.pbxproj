@@ -12,6 +12,7 @@
 		0F8DA41723DDBF3F00ABF254 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA41623DDBF3F00ABF254 /* UserService.swift */; };
 		0F8DA41923DDC2D300ABF254 /* TargetType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA41823DDC2D300ABF254 /* TargetType+Extensions.swift */; };
 		0F8DA41B23DDC6A200ABF254 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA41A23DDC6A200ABF254 /* UserResponse.swift */; };
+		0F8DA42023DDD4B100ABF254 /* MoyaProvider+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA41F23DDD4B100ABF254 /* MoyaProvider+Extensions.swift */; };
 		0F8DA42323DDD68100ABF254 /* UserConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA42223DDD68100ABF254 /* UserConverter.swift */; };
 		0FCD252B23DD0A920066B4F4 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD252A23DD0A920066B4F4 /* EventResponse.swift */; };
 		B0614F810C003A6F644C20CC /* Pods_GithubMobile_Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E123D3F26A62BD97E6DD8D2 /* Pods_GithubMobile_Platform.framework */; };
@@ -29,6 +30,7 @@
 		0F8DA41623DDBF3F00ABF254 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		0F8DA41823DDC2D300ABF254 /* TargetType+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Extensions.swift"; sourceTree = "<group>"; };
 		0F8DA41A23DDC6A200ABF254 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		0F8DA41F23DDD4B100ABF254 /* MoyaProvider+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Extensions.swift"; sourceTree = "<group>"; };
 		0F8DA42223DDD68100ABF254 /* UserConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConverter.swift; sourceTree = "<group>"; };
 		0FCD251E23DD05550066B4F4 /* Platform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Platform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD252223DD05560066B4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				0F8DA41323DDBCDB00ABF254 /* Identifiable+Extensions.swift */,
 				0F8DA41823DDC2D300ABF254 /* TargetType+Extensions.swift */,
+				0F8DA41F23DDD4B100ABF254 /* MoyaProvider+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				0F8DA41423DDBCDB00ABF254 /* Identifiable+Extensions.swift in Sources */,
 				0F8DA41923DDC2D300ABF254 /* TargetType+Extensions.swift in Sources */,
 				0F8DA42323DDD68100ABF254 /* UserConverter.swift in Sources */,
+				0F8DA42023DDD4B100ABF254 /* MoyaProvider+Extensions.swift in Sources */,
 				0F8DA41723DDBF3F00ABF254 /* UserService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
