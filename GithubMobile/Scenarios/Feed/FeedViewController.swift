@@ -12,6 +12,11 @@ import ReactiveSwift
 
 class FeedViewController: BaseViewController {
 
+  private lazy var navigationBarView: NavigationBarView = {
+    let navigationBarView = NavigationBarView()
+    return navigationBarView
+  }()
+
   private lazy var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -83,6 +88,7 @@ private extension FeedViewController {
 
   func setupView() {
     view.backgroundColor = AppColors.Feed.backgroundColor
+    navigationBarView.attachToTop(of: view)
   }
 
   func setupListAdapter() {
@@ -106,7 +112,10 @@ private extension FeedViewController {
 
   func setupCollectionViewConstraints() {
     collectionView.apply {
-      $0.stickToParentEdges()
+      $0.topConstraint(onBottomOf: navigationBarView, constant: 1)
+      $0.bottomConstraint(constant: 0)
+      $0.leadingConstraint(constant: 0)
+      $0.trailingConstaint(constant: 0)
     }
   }
 

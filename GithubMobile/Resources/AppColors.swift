@@ -28,5 +28,7 @@ struct AppColors {
 
   struct Shared {
     static let dividerColor = UIColor(hex: "#d5d5d5")
+    static let navigationBarBackgroundColor = UIColor(hex: "#fdf9f3")
+    static let navigationBarShadowColor = UIColor(hex: "#595959")
   }
 }
