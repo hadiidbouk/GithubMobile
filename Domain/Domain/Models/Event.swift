@@ -16,4 +16,5 @@ public struct Event: Identifiable {
   public let type: EventType
   public let actor: EventActor
   public let repo: EventRepositroy
+  public let createdAt: Date
 }
