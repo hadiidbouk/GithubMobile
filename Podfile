@@ -23,6 +23,7 @@ target 'GithubMobile' do
   pod 'ReactiveCocoa', '~> 10.2.0'
   pod 'OAuthSwift', '~> 2.0.0'
   pod 'IGListKit', '~> 4.0.0'
+  pod 'Kingfisher', '~> 5.0'
 
   target 'Platform' do
     project 'Platform/Platform'
