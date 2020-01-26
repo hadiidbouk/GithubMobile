@@ -21,4 +21,12 @@ extension TargetType {
     let baseUrlString = "https://api.github.com"
     return URL(string: baseUrlString)!
   }
+
+  func requestHeaders(token: String) -> [String: String] {
+    return [
+      "Accept": "application/json",
+      "Content-type": "application/json",
+      "Authorization": "Bearer \(token)"
+    ]
+  }
 }
