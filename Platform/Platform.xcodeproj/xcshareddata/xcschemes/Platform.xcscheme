@@ -14,38 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F54214523DA444A007F976C"
-               BuildableName = "GithubMobile.app"
-               BlueprintName = "GithubMobile"
-               ReferencedContainer = "container:GithubMobile.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0FCD24EE23DCF9970066B4F4"
-               BuildableName = "Domain.framework"
-               BlueprintName = "Domain"
-               ReferencedContainer = "container:Domain/Domain.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "0FCD251D23DD05550066B4F4"
                BuildableName = "Platform.framework"
                BlueprintName = "Platform"
-               ReferencedContainer = "container:Platform/Platform.xcodeproj">
+               ReferencedContainer = "container:Platform.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -68,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F54214523DA444A007F976C"
-            BuildableName = "GithubMobile.app"
-            BlueprintName = "GithubMobile"
-            ReferencedContainer = "container:GithubMobile.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -85,16 +47,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0F54214523DA444A007F976C"
-            BuildableName = "GithubMobile.app"
-            BlueprintName = "GithubMobile"
-            ReferencedContainer = "container:GithubMobile.xcodeproj">
+            BlueprintIdentifier = "0FCD251D23DD05550066B4F4"
+            BuildableName = "Platform.framework"
+            BlueprintName = "Platform"
+            ReferencedContainer = "container:Platform.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

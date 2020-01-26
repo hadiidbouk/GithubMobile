@@ -6,6 +6,7 @@
 //  Copyright © 2020 Hadi Dbouk. All rights reserved.
 //
 
+import Foundation
 import Domain
 
 struct EventResponse: Decodable {
@@ -27,19 +28,17 @@ struct EventResponse: Decodable {
 
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    let id = try container.decode(Event.Identifier.self, forKey: .id)
-    let type = try container.decode(EventType.self, forKey: .type)
-    let actor = try container.decode(Actor.self, forKey: .actor)
-    let repo = try container.decode(Repository.self, forKey: .repo)
-    let createdAt = try container.decode(Date.self, forKey: .createdAt)
-
-    self.init(id: id, type: type, actor: actor, repo: repo, createdAt: createdAt)
+    self.id = try container.decode(Event.Identifier.self, forKey: .id)
+    self.type = try container.decode(EventType.self, forKey: .type)
+    self.actor = try container.decode(Actor.self, forKey: .actor)
+    self.repo = try container.decode(Repository.self, forKey: .repo)
+    self.createdAt = try container.decode(Date.self, forKey: .createdAt)
   }
 }
 
 extension EventResponse {
   struct Actor: Decodable {
-    let id: Domain.Actor.Identifier
+    let id: EventActor.Identifier
     let login: String
     let displayLogin: String
     let gravatarId: String
@@ -57,14 +56,12 @@ extension EventResponse {
 
     init(from decoder: Decoder) throws {
       let container = try decoder.container(keyedBy: CodingKeys.self)
-      let id = try container.decode(Actor.Identifier.self, forKey: .id)
-      let login = try container.decode(String.self, forKey: .login)
-      let displayLogin = try container.decode(String.self, forKey: .displayLogin)
-      let gravatarId = try container.decode(String.self, forKey: .gravatarId)
-      let url = try container.decode(String.self, forKey: .url)
-      let avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
-
-      self.init(id: id, login: login, displayLogin: displayLogin, gravatarId: gravatarId, url: url, avatarUrl: avatarUrl)
+      self.id = try container.decode(EventActor.Identifier.self, forKey: .id)
+      self.login = try container.decode(String.self, forKey: .login)
+      self.displayLogin = try container.decode(String.self, forKey: .displayLogin)
+      self.gravatarId = try container.decode(String.self, forKey: .gravatarId)
+      self.url = try container.decode(String.self, forKey: .url)
+      self.avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
     }
   }
 

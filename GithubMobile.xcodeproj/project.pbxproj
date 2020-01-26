@@ -11,6 +11,8 @@
 		0F54214C23DA444A007F976C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214B23DA444A007F976C /* SceneDelegate.swift */; };
 		0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F54214D23DA444A007F976C /* LoginViewController.swift */; };
 		0F54215323DA444B007F976C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F54215223DA444B007F976C /* Assets.xcassets */; };
+		0F8DA3EC23DDB27600ABF254 /* Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8DA3EB23DDB27600ABF254 /* Platform.framework */; };
+		0F8DA3ED23DDB27600ABF254 /* Platform.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8DA3EB23DDB27600ABF254 /* Platform.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */; };
 		0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */; };
 		0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */; };
@@ -43,6 +45,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0FCD251123DD01BE0066B4F4 /* Domain.framework in Embed Frameworks */,
+				0F8DA3ED23DDB27600ABF254 /* Platform.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +59,7 @@
 		0F54214D23DA444A007F976C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0F54215223DA444B007F976C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F54215723DA444B007F976C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F8DA3EB23DDB27600ABF254 /* Platform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Platform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			files = (
 				0FCD251023DD01BE0066B4F4 /* Domain.framework in Frameworks */,
 				9A502495895122A2922883C2 /* Pods_GithubMobile.framework in Frameworks */,
+				0F8DA3EC23DDB27600ABF254 /* Platform.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +103,7 @@
 		0F339C6F64FA707BCFB98D20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F8DA3EB23DDB27600ABF254 /* Platform.framework */,
 				0FCD250F23DD01BE0066B4F4 /* Domain.framework */,
 				0FCD24FD23DCF9FB0066B4F4 /* Domain.framework */,
 				BD2ED803BF6A78E7098F8873 /* Pods_GithubMobile.framework */,
