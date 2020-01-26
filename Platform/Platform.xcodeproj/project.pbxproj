@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FCD252B23DD0A920066B4F4 /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD252A23DD0A920066B4F4 /* EventResponse.swift */; };
 		B0614F810C003A6F644C20CC /* Pods_GithubMobile_Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E123D3F26A62BD97E6DD8D2 /* Pods_GithubMobile_Platform.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0FCD251E23DD05550066B4F4 /* Platform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Platform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD252223DD05560066B4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FCD252A23DD0A920066B4F4 /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		41EDBCE2B4806181207018E2 /* Pods-GithubMobile-Platform.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile-Platform.release.xcconfig"; path = "Target Support Files/Pods-GithubMobile-Platform/Pods-GithubMobile-Platform.release.xcconfig"; sourceTree = "<group>"; };
 		5E123D3F26A62BD97E6DD8D2 /* Pods_GithubMobile_Platform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile_Platform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC82AFC2B8EB1CE72E59C92 /* Pods-GithubMobile-Platform.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubMobile-Platform.debug.xcconfig"; path = "Target Support Files/Pods-GithubMobile-Platform/Pods-GithubMobile-Platform.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,9 +53,18 @@
 		0FCD252023DD05550066B4F4 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
+				0FCD252923DD0A660066B4F4 /* Response Models */,
 				0FCD252223DD05560066B4F4 /* Info.plist */,
 			);
 			path = Platform;
+			sourceTree = "<group>";
+		};
+		0FCD252923DD0A660066B4F4 /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FCD252A23DD0A920066B4F4 /* EventResponse.swift */,
+			);
+			path = "Response Models";
 			sourceTree = "<group>";
 		};
 		1F8E9B3E3236EA2F2AD659FB /* Frameworks */ = {
@@ -117,6 +128,7 @@
 				TargetAttributes = {
 					0FCD251D23DD05550066B4F4 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -178,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FCD252B23DD0A920066B4F4 /* EventResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEC82AFC2B8EB1CE72E59C92 /* Pods-GithubMobile-Platform.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YL77PVMV33;
@@ -325,6 +339,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41EDBCE2B4806181207018E2 /* Pods-GithubMobile-Platform.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = YL77PVMV33;
