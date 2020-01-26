@@ -9,7 +9,7 @@
 import UIKit
 import IGListKit
 
-class FeedViewController: UIViewController {
+class FeedViewController: BaseViewController {
 
   private lazy var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -21,8 +21,8 @@ class FeedViewController: UIViewController {
 
   private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
 
-  init() {
-    super.init(nibName: nil, bundle: nil)
+  override init() {
+    super.init()
   }
 
   required init?(coder: NSCoder) {

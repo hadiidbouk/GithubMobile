@@ -10,7 +10,7 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
 
   private lazy var contentView: UIView = {
     let contentView = UIView()
@@ -63,7 +63,7 @@ class LoginViewController: UIViewController {
   private let viewModel: LoginViewModelType
   init(viewModel: LoginViewModelType) {
     self.viewModel = viewModel
-    super.init(nibName: nil, bundle: nil)
+    super.init()
   }
 
   required init?(coder: NSCoder) {
