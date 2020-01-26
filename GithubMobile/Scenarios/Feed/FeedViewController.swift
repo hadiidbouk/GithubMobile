@@ -15,7 +15,9 @@ class FeedViewController: BaseViewController {
   private lazy var collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    collectionView.backgroundColor = .yellow
+    collectionView.backgroundColor = .clear
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.showsHorizontalScrollIndicator = false
     view.addSubview(collectionView)
     return collectionView
   }()
@@ -51,7 +53,15 @@ extension FeedViewController: ListAdapterDataSource {
     // this can be anything!
     return [ FeedSectionModel(id: "id1", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
              FeedSectionModel(id: "id2", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id3", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork) ]
+             FeedSectionModel(id: "id3", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id4", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id5", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id6", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id7", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id8", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id9", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id10", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
+             FeedSectionModel(id: "id11", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork) ]
   }
 
   func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -65,12 +75,17 @@ extension FeedViewController: ListAdapterDataSource {
 
 private extension FeedViewController {
   func setup() {
-    configureListAdapter()
+    setupView()
+    setupListAdapter()
     setupConstraints()
     setupBindings()
   }
 
-  func configureListAdapter() {
+  func setupView() {
+    view.backgroundColor = AppColors.Feed.backgroundColor
+  }
+
+  func setupListAdapter() {
     adapter.collectionView = collectionView
     adapter.dataSource = self
   }
