@@ -12,7 +12,6 @@ import XCGLogger
 import ReactiveSwift
 
 class UsersRepository {
-
   private let logger: XCGLogger?
   private let provider: MoyaProvider<UserService>
   private let userConverter: UserConverter
