@@ -55,18 +55,7 @@ class FeedViewController: BaseViewController {
 
 extension FeedViewController: ListAdapterDataSource {
   func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-    // this can be anything!
-    return [ FeedSectionModel(id: "id1", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id2", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id3", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id4", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id5", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id6", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id7", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id8", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id9", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id10", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork),
-             FeedSectionModel(id: "id11", actorName: "actorName", avatarUrl: "avatarUrl", action: .fork) ]
+    return viewModel.outputs.sections.value
   }
 
   func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
@@ -100,6 +89,8 @@ private extension FeedViewController {
     viewModel.inputs.isVisible <~ isVisible
 
     loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
+    adapter.reactive.performUpdates <~ viewModel.outputs.sections.map(value: ())
+
   }
 }
 

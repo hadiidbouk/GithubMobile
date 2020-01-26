@@ -15,7 +15,7 @@ protocol FeedViewModelTypeInputs {
 
 protocol FeedViewModelTypeOutputs {
   var isLoading: Property<Bool> { get }
-  var feeds: Property<[Event]> { get }
+  var sections: Property<[FeedSectionModel]> { get }
 
 }
 

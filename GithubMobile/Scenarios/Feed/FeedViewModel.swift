@@ -11,7 +11,7 @@ import ReactiveSwift
 
 class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTypeOutputs {
   let isLoading: Property<Bool>
-  var feeds: Property<[Event]>
+  var sections: Property<[FeedSectionModel]>
 
   let isVisible =  MutableProperty<Bool>(false)
 
@@ -20,10 +20,13 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
 
   private let loadUser: Action<Void, User, Error>
   private let loadReceivedEvents: Action<User, [Event], Error>
-  
+
+  private let mutableSectionModels = MutableProperty<[FeedSectionModel]>([])
+
   init(token: String,
        getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase,
-       getReceivedEventsUseCase: GetUserReceivedEventsUseCase) {
+       getReceivedEventsUseCase: GetUserReceivedEventsUseCase,
+       feedSectionConverter: FeedSectionConverter = FeedSectionConverter()) {
     loadUser = Action { getAuthenticatedUserUseCase.get(token: token) }
     loadUser <~ isVisible.producer.skipRepeats().map(value: ())
 
@@ -32,6 +35,7 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
 
     isLoading = loadUser.isExecuting.or(loadReceivedEvents.isExecuting)
 
-    feeds = Property(initial: [], then: loadReceivedEvents.values)
+    sections = Property(mutableSectionModels)
+    mutableSectionModels <~ loadReceivedEvents.values.map { $0.map(feedSectionConverter.from) }
   }
 }

@@ -12,38 +12,41 @@ class FeedSectionModel {
   let id: String
   let actorName: String
   let avatarUrl: String
-  let action: FeedAction
+  let description: NSAttributedString
+  let createdAt: Date
 
-  init(id: String, actorName: String, avatarUrl: String, action: FeedAction) {
+  init(id: String, actorName: String, avatarUrl: String, description: NSAttributedString, createdAt: Date) {
     self.id = id
     self.actorName = actorName
     self.avatarUrl = avatarUrl
-    self.action = action
+    self.description = description
+    self.createdAt = createdAt
   }
 }
 
-struct FeedRepository: Equatable {
-  let id: String
-  let name: String
-  let url: String
-}
+extension FeedSectionModel {
+  struct Repository: Equatable {
+    let name: String
+    let url: String
+  }
 
-enum FeedAction: Equatable {
-  case star(repository: FeedRepository)
-  case fork
-  case create(repositories: FeedRepository)
-  case makePublic(repository: FeedRepository)
+  enum Action: Equatable {
+    case star(repository: Repository)
+    case fork
+    case create(repository: Repository)
+    case makePublic(repository: Repository)
 
-  static func == (lhs: FeedAction, rhs: FeedAction) -> Bool {
-        switch (lhs, rhs) {
-        case let (.star(lhsRepository), .star(rhsRepository)):              return lhsRepository == rhsRepository
-        case let (.create(lhsRepository), .create(rhsRepository)):          return lhsRepository == rhsRepository
-        case let (.makePublic(lhsRepository), .makePublic(rhsRepository)):  return lhsRepository == rhsRepository
-        case (.fork, .fork):  return true
-        case (.star, _),
-             (.fork, _),
-             (.create, _),
-             (.makePublic, _):                              return false
+    static func == (lhs: Action, rhs: Action) -> Bool {
+          switch (lhs, rhs) {
+          case let (.star(lhsRepository), .star(rhsRepository)):              return lhsRepository == rhsRepository
+          case let (.create(lhsRepository), .create(rhsRepository)):          return lhsRepository == rhsRepository
+          case let (.makePublic(lhsRepository), .makePublic(rhsRepository)):  return lhsRepository == rhsRepository
+          case (.fork, .fork):  return true
+          case (.star, _),
+               (.fork, _),
+               (.create, _),
+               (.makePublic, _):                                              return false
+      }
     }
   }
 }
@@ -65,7 +68,8 @@ extension FeedSectionModel: ListDiffable {
     return id == other.id &&
            actorName == other.actorName &&
            avatarUrl == other.avatarUrl &&
-           action == other.action
+           description == other.description &&
+           createdAt == other.createdAt
   }
 }
 

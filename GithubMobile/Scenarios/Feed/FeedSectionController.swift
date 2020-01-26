@@ -14,6 +14,19 @@ class FeedSectionController: ListGenericSectionController<FeedSectionModel> {
   }
 
   override func cellForItem(at index: Int) -> UICollectionViewCell {
-    return collectionContext!.dequeueReusableCell(of: FeedCollectionViewCell.self, for: self, at: index)
+    guard let context = collectionContext else {
+      preconditionFailure("Context is not configured")
+    }
+    guard let cell = context.dequeueReusableCell(of: FeedCollectionViewCell.self, for: self, at: index) as? FeedCollectionViewCell else {
+      preconditionFailure("Registered cell is of unexpected type")
+    }
+
+    guard let model = object else {
+      preconditionFailure("Model is not configured")
+    }
+
+    cell.update(with: model)
+
+    return cell
   }
 }

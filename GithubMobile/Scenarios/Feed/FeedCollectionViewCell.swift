@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 class FeedCollectionViewCell: UICollectionViewCell {
 
@@ -62,6 +63,8 @@ class FeedCollectionViewCell: UICollectionViewCell {
     return label
   }()
 
+  private var model: MutableProperty<FeedSectionModel?> = MutableProperty(nil)
+
   override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -71,16 +74,28 @@ class FeedCollectionViewCell: UICollectionViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+
+  func update(with model: FeedSectionModel) {
+    self.model.value = model
+  }
 }
 
 private extension FeedCollectionViewCell {
   func setup() {
     setupView()
     setupConstraints()
+    setupBindings()
   }
 
   func setupView() {
     contentView.backgroundColor = .clear
+  }
+
+  func setupBindings() {
+    let nonNilModel = model.producer.skipNil()
+    usernameLabel.reactive.text <~ nonNilModel.map(\.actorName)
+    timeAgoLabel.reactive.text <~ nonNilModel.map(\.createdAt.timeAgo)
+    descriptionLabel.reactive.attributedText <~ nonNilModel.map(\.description)
   }
 }
 
