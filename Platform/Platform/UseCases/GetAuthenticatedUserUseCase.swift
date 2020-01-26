@@ -11,8 +11,8 @@ import XCGLogger
 import ReactiveSwift
 
 class GetAuthenticatedUserUseCase: Domain.GetAuthenticatedUserUseCase {
-  let repository: UsersRepository
-  let logger: XCGLogger?
+  private let repository: UsersRepository
+  private let logger: XCGLogger?
 
   init(repository: UsersRepository, logger: XCGLogger? = nil) {
     self.repository = repository
