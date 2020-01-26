@@ -9,9 +9,16 @@ PODS:
     - Moya/Core
     - ReactiveSwift (~> 6.0)
   - OAuthSwift (2.0.0)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - ReactiveCocoa (10.2.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.2.0)
+  - XCGLogger (7.0.0):
+    - XCGLogger/Core (= 7.0.0)
+  - XCGLogger/Core (7.0.0):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - IGListKit (~> 4.0.0)
@@ -19,6 +26,7 @@ DEPENDENCIES:
   - OAuthSwift (~> 2.0.0)
   - ReactiveCocoa (~> 10.2.0)
   - ReactiveSwift (~> 6.0)
+  - XCGLogger (~> 7.0.0)
 
 SPEC REPOS:
   trunk:
@@ -27,8 +35,10 @@ SPEC REPOS:
     - IGListKit
     - Moya
     - OAuthSwift
+    - ObjcExceptionBridging
     - ReactiveCocoa
     - ReactiveSwift
+    - XCGLogger
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
@@ -36,9 +46,11 @@ SPEC CHECKSUMS:
   IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
   Moya: d4821fbcb3e784f34d2f82869e6855057a0b85d1
   OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   ReactiveCocoa: a123c42f449c552460a4ee217dd49c76a17c8204
   ReactiveSwift: 3dc8800378110b13d40b46ab362afa9f6bcffc6c
+  XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 659004a57651c367f0ad14026b12958598e76d4a
+PODFILE CHECKSUM: b71864bab99d1a92eb00439f9391ceebe04ce7ca
 
 COCOAPODS: 1.8.4

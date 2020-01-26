@@ -8,6 +8,7 @@ inhibit_all_warnings!
 
 def common
   pod 'ReactiveSwift', '~> 6.0'
+  pod 'XCGLogger', '~> 7.0.0'
 end
 
 def platform_app_common
