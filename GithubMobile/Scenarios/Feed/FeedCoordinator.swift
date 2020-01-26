@@ -31,7 +31,8 @@ class FeedCoordinator: Coordinator {
       return
     }
     let viewModel = FeedViewModel(token: oauth.oauthToken,
-                                  getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase())
+                                  getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase(),
+                                  getReceivedEventsUseCase: useCaseProvider.makeGetUserReceivedEventsUseCase())
     let feedViewController = FeedViewController(viewModel: viewModel)
     presentViewController.pushViewController(feedViewController, animated: true)
     viewController = feedViewController

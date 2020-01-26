@@ -11,18 +11,27 @@ import ReactiveSwift
 
 class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTypeOutputs {
   let isLoading: Property<Bool>
+  var feeds: Property<[Event]>
+
   let isVisible =  MutableProperty<Bool>(false)
 
   var inputs: FeedViewModelTypeInputs { return self }
   var outputs: FeedViewModelTypeOutputs { return self }
 
   private let loadUser: Action<Void, User, Error>
-
+  private let loadReceivedEvents: Action<User, [Event], Error>
+  
   init(token: String,
-       getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase) {
+       getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase,
+       getReceivedEventsUseCase: GetUserReceivedEventsUseCase) {
     loadUser = Action { getAuthenticatedUserUseCase.get(token: token) }
     loadUser <~ isVisible.producer.skipRepeats().map(value: ())
 
-    isLoading = loadUser.isExecuting
+    loadReceivedEvents = Action { user in getReceivedEventsUseCase.get(token: token, username: user.username) }
+    loadReceivedEvents <~ loadUser.values
+
+    isLoading = loadUser.isExecuting.or(loadReceivedEvents.isExecuting)
+
+    feeds = Property(initial: [], then: loadReceivedEvents.values)
   }
 }

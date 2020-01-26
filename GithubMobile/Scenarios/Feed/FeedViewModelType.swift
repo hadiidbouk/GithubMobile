@@ -6,6 +6,7 @@
 //  Copyright © 2020 Hadi Dbouk. All rights reserved.
 //
 
+import Domain
 import ReactiveSwift
 
 protocol FeedViewModelTypeInputs {
@@ -14,6 +15,8 @@ protocol FeedViewModelTypeInputs {
 
 protocol FeedViewModelTypeOutputs {
   var isLoading: Property<Bool> { get }
+  var feeds: Property<[Event]> { get }
+
 }
 
 protocol FeedViewModelType {

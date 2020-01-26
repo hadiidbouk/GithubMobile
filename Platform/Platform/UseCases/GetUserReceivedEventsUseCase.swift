@@ -25,7 +25,7 @@ public class GetUserReceivedEventsUseCase: Domain.GetUserReceivedEventsUseCase {
   ///   - username: the account username which receives the events.
   /// - Returns: A Producer which sends one object.
   ///
-  public func get(token: String, username: String) -> SignalProducer<Event, Error> {
+  public func get(token: String, username: String) -> SignalProducer<[Event], Error> {
     return repository.getReceivedEvents(token: token, username: username)
   }
 }
