@@ -9,5 +9,5 @@
 import ReactiveSwift
 
 public protocol GetAuthenticatedUserUseCase {
-  func get() -> SignalProducer<User, Error>
+  func get(token: String) -> SignalProducer<User, Error>
 }
