@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F8DA3E323DDAAC600ABF254 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA3E223DDAAC600ABF254 /* User.swift */; };
 		0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24FA23DCF9E40066B4F4 /* Event.swift */; };
 		0FCD250223DCFAA80066B4F4 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250123DCFAA80066B4F4 /* EventType.swift */; };
 		0FCD250523DCFC1B0066B4F4 /* EventActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250423DCFC1B0066B4F4 /* EventActor.swift */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubMobile_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F8DA3E223DDAAC600ABF254 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FCD24EF23DCF9970066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD24FA23DCF9E40066B4F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0FCD250123DCFAA80066B4F4 /* EventType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				0FCD24FA23DCF9E40066B4F4 /* Event.swift */,
 				0FCD250423DCFC1B0066B4F4 /* EventActor.swift */,
 				0FCD250823DCFE020066B4F4 /* EventRepository.swift */,
+				0F8DA3E223DDAAC600ABF254 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				0FCD250523DCFC1B0066B4F4 /* EventActor.swift in Sources */,
 				0FCD250223DCFAA80066B4F4 /* EventType.swift in Sources */,
+				0F8DA3E323DDAAC600ABF254 /* User.swift in Sources */,
 				0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */,
 				0FCD250B23DCFE620066B4F4 /* Identifiable.swift in Sources */,
 				0FCD250923DCFE020066B4F4 /* EventRepository.swift in Sources */,
