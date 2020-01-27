@@ -26,10 +26,10 @@ struct SearchRepositoryResultResponse: Decodable {
 
 extension SearchRepositoryResultResponse {
   struct Repository: Decodable {
-    public let id: SearchRepositoryResult.Repository.Identifier
-    public let fullName: String
-    public let stars: Int
-    public let description: String?
+    let id: SearchRepositoryResult.Repository.Identifier
+    let fullName: String
+    let stars: Int
+    let description: String?
 
     private enum CodingKeys: String, CodingKey {
       case id

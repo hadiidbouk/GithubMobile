@@ -12,6 +12,7 @@ import XCGLogger
 public class UseCaseProvider: Domain.UseCaseProvider {
   private let usersRepository: UsersRepository
   private let searchRepository: SearchRepository
+  private let reposRepository: ReposRepository
 
   private let logger: XCGLogger?
 
@@ -20,6 +21,7 @@ public class UseCaseProvider: Domain.UseCaseProvider {
 
     usersRepository = UsersRepository(logger: logger)
     searchRepository = SearchRepository(logger: logger)
+    reposRepository = ReposRepository(logger: logger)
   }
 
   public func makeGetAutenticatedUserUseCase() -> Domain.GetAuthenticatedUserUseCase {
@@ -32,5 +34,9 @@ public class UseCaseProvider: Domain.UseCaseProvider {
 
   public func makeGetSearchRepositoriesUseCase() -> Domain.GetSearchRepositoriesUseCase {
     return GetSearchRepositoriesUseCase(repository: searchRepository, logger: logger)
+  }
+
+  public func makeGetRepositoryUseCase() -> Domain.GetRepositoryUseCase {
+    return GetRepositoryUseCase(repository: reposRepository, logger: logger)
   }
 }

@@ -13,6 +13,8 @@
 		0F8DA43023DDFD2200ABF254 /* GetUserReceivedEventsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA42F23DDFD2200ABF254 /* GetUserReceivedEventsUseCase.swift */; };
 		0FA0233423DF3251000FE8B8 /* SearchRepositoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0233323DF3251000FE8B8 /* SearchRepositoryResult.swift */; };
 		0FA0233823DF35B5000FE8B8 /* GetSearchRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0233723DF35B5000FE8B8 /* GetSearchRepositoriesUseCase.swift */; };
+		0FA0235723DFA4C9000FE8B8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0235623DFA4C9000FE8B8 /* Repository.swift */; };
+		0FA0235B23DFA744000FE8B8 /* GetRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0235A23DFA744000FE8B8 /* GetRepositoryUseCase.swift */; };
 		0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24FA23DCF9E40066B4F4 /* Event.swift */; };
 		0FCD250B23DCFE620066B4F4 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD250A23DCFE620066B4F4 /* Identifiable.swift */; };
 		6E28DF92B0A8BFA4CB00DDC3 /* Pods_GithubMobile_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063674877CA65BCBC35D717C /* Pods_GithubMobile_Domain.framework */; };
@@ -26,6 +28,8 @@
 		0F8DA42F23DDFD2200ABF254 /* GetUserReceivedEventsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserReceivedEventsUseCase.swift; sourceTree = "<group>"; };
 		0FA0233323DF3251000FE8B8 /* SearchRepositoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryResult.swift; sourceTree = "<group>"; };
 		0FA0233723DF35B5000FE8B8 /* GetSearchRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchRepositoriesUseCase.swift; sourceTree = "<group>"; };
+		0FA0235623DFA4C9000FE8B8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		0FA0235A23DFA744000FE8B8 /* GetRepositoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRepositoryUseCase.swift; sourceTree = "<group>"; };
 		0FCD24EF23DCF9970066B4F4 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FCD24FA23DCF9E40066B4F4 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0FCD250A23DCFE620066B4F4 /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 				0F8DA42F23DDFD2200ABF254 /* GetUserReceivedEventsUseCase.swift */,
 				0F8DA3E723DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift */,
 				0FA0233723DF35B5000FE8B8 /* GetSearchRepositoriesUseCase.swift */,
+				0FA0235A23DFA744000FE8B8 /* GetRepositoryUseCase.swift */,
 				0F8DA3E923DDB1CA00ABF254 /* UseCaseProvider.swift */,
 			);
 			path = UseCases;
@@ -100,6 +105,7 @@
 				0FCD24FA23DCF9E40066B4F4 /* Event.swift */,
 				0F8DA3E223DDAAC600ABF254 /* User.swift */,
 				0FA0233323DF3251000FE8B8 /* SearchRepositoryResult.swift */,
+				0FA0235623DFA4C9000FE8B8 /* Repository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA0235B23DFA744000FE8B8 /* GetRepositoryUseCase.swift in Sources */,
 				0F8DA3E823DDB0D900ABF254 /* GetAuthenticatedUserUseCase.swift in Sources */,
 				0FA0233423DF3251000FE8B8 /* SearchRepositoryResult.swift in Sources */,
 				0F8DA3E323DDAAC600ABF254 /* User.swift in Sources */,
@@ -227,6 +234,7 @@
 				0FCD24FB23DCF9E40066B4F4 /* Event.swift in Sources */,
 				0F8DA43023DDFD2200ABF254 /* GetUserReceivedEventsUseCase.swift in Sources */,
 				0FCD250B23DCFE620066B4F4 /* Identifiable.swift in Sources */,
+				0FA0235723DFA4C9000FE8B8 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
