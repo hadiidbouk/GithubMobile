@@ -44,8 +44,7 @@ class SearchCollectionViewCell: UICollectionViewCell {
   private lazy var descriptionLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont.systemFont(ofSize: 13)
-    label.numberOfLines = 0
-    label.adjustsFontSizeToFitWidth = true
+    label.numberOfLines = 2
     label.baselineAdjustment = .alignCenters
     cellContentView.addSubview(label)
     return label

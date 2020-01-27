@@ -16,6 +16,6 @@ class SearchRepositorySectionConverter {
 
 private extension SearchRepositorySectionConverter {
   func from(_ repository: SearchRepositoryResult.Repository) -> SearchSectionModel {
-    return .init(id: repository.id.rawValue, name: repository.fullName, stars: repository.stars, description: repository.description)
+    return .init(id: repository.id.rawValue, name: repository.fullName, stars: repository.stars, description: repository.description ?? "-")
   }
 }

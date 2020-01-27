@@ -12,12 +12,12 @@ class SearchSectionModel {
   let id: Int
   let name: String
   let stars: Int
-  let description: String?
+  let description: String
 
   init(id: Int,
        name: String,
        stars: Int,
-       description: String?) {
+       description: String) {
     self.id = id
     self.name = name
     self.stars = stars
