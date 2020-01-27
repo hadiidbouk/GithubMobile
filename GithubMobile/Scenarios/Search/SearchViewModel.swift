@@ -10,9 +10,9 @@ import Domain
 import ReactiveSwift
 
 class SearchViewModel: SearchViewModelType, SearchViewModelTypeInputs, SearchViewModelTypeOutputs {
-
   let dismiss: Action<Void, Void, Never>
   let search: Action<String, String, Never>
+  var repoDetails: Action<String, String, Never>
 
   let sections: Property<[SearchSectionModel]>
 
@@ -27,10 +27,11 @@ class SearchViewModel: SearchViewModelType, SearchViewModelTypeInputs, SearchVie
        maxPageNumber: Int = 9,
        getSearchRepositoriesUseCase: GetSearchRepositoriesUseCase,
        searchRepositoryConverter: SearchRepositorySectionConverter = SearchRepositorySectionConverter()) {
+
     dismiss = Action { SignalProducer(value: $0) }
-
     search = Action { SignalProducer(value: $0) }
-
+    repoDetails = Action { SignalProducer(value: $0) }
+    
     loadRepositories = Action { getSearchRepositoriesUseCase.search(by: $0, page: initialPageNumber, token: token) }
     loadRepositories <~ search.values
     mutableSections <~ loadRepositories.values.map { searchRepositoryConverter.from($0.items) }

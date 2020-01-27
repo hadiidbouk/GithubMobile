@@ -40,6 +40,10 @@
 		0FA0233023DF254E000FE8B8 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0232F23DF254E000FE8B8 /* SearchCollectionViewCell.swift */; };
 		0FA0234223DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */; };
 		0FA0234423DF54D2000FE8B8 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234323DF54D2000FE8B8 /* Int+Extensions.swift */; };
+		0FA0234723DF719B000FE8B8 /* RepoDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234623DF719B000FE8B8 /* RepoDetailsCoordinator.swift */; };
+		0FA0234923DF7206000FE8B8 /* RepoDetailsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */; };
+		0FA0234B23DF724D000FE8B8 /* RepoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */; };
+		0FA0234D23DF728B000FE8B8 /* RepoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */; };
 		0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A323DC95500066B4F4 /* FeedViewController.swift */; };
 		0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */; };
 		0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */; };
@@ -106,6 +110,10 @@
 		0FA0232F23DF254E000FE8B8 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositorySectionConverter.swift; sourceTree = "<group>"; };
 		0FA0234323DF54D2000FE8B8 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		0FA0234623DF719B000FE8B8 /* RepoDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsCoordinator.swift; sourceTree = "<group>"; };
+		0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewModelType.swift; sourceTree = "<group>"; };
+		0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewModel.swift; sourceTree = "<group>"; };
+		0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewController.swift; sourceTree = "<group>"; };
 		0FCD24A323DC95500066B4F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OAuthSwiftCredential+Extensions.swift"; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 		0F9B3F9F23DA485700D79A72 /* Scenarios */ = {
 			isa = PBXGroup;
 			children = (
+				0FA0234523DF718C000FE8B8 /* RepoDetails */,
 				0FA0232223DF1949000FE8B8 /* Search */,
 				0FA0231A23DEC2FD000FE8B8 /* Shared */,
 				0FCD24A223DC943F0066B4F4 /* Feed */,
@@ -294,6 +303,17 @@
 				0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		0FA0234523DF718C000FE8B8 /* RepoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0FA0234623DF719B000FE8B8 /* RepoDetailsCoordinator.swift */,
+				0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */,
+				0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */,
+				0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */,
+			);
+			path = RepoDetails;
 			sourceTree = "<group>";
 		};
 		0FCD24A223DC943F0066B4F4 /* Feed */ = {
@@ -497,6 +517,7 @@
 				0FA0232623DF19D9000FE8B8 /* SearchViewController.swift in Sources */,
 				0FA0232423DF1987000FE8B8 /* SearchCoordinator.swift in Sources */,
 				0F8DA43623DE1A7600ABF254 /* NavigationBarView.swift in Sources */,
+				0FA0234723DF719B000FE8B8 /* RepoDetailsCoordinator.swift in Sources */,
 				0F8DA44123DE3EB900ABF254 /* Kingfisher+Extensions.swift in Sources */,
 				0FA0231D23DEC320000FE8B8 /* SpinnerSectionController.swift in Sources */,
 				0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */,
@@ -515,10 +536,13 @@
 				0FD6E01F23DB2C7C0035A897 /* AuthConfig.swift in Sources */,
 				0FD6E01A23DB26800035A897 /* LoginViewModel.swift in Sources */,
 				0F54214A23DA444A007F976C /* AppDelegate.swift in Sources */,
+				0FA0234923DF7206000FE8B8 /* RepoDetailsViewModelType.swift in Sources */,
 				0F9B3FAD23DA544700D79A72 /* Reflection.swift in Sources */,
 				0F54214C23DA444A007F976C /* SceneDelegate.swift in Sources */,
 				0FA0233023DF254E000FE8B8 /* SearchCollectionViewCell.swift in Sources */,
+				0FA0234D23DF728B000FE8B8 /* RepoDetailsViewController.swift in Sources */,
 				0FCD24AB23DCBFA00066B4F4 /* LoadingView.swift in Sources */,
+				0FA0234B23DF724D000FE8B8 /* RepoDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

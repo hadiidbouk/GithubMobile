@@ -60,7 +60,7 @@ extension SearchViewController: ListAdapterDataSource {
   }
 
   func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-    return SearchSectionController()
+    return SearchSectionController(onSelectRepo: viewModel.inputs.repoDetails.bindingTarget)
   }
 
   func emptyView(for listAdapter: ListAdapter) -> UIView? {

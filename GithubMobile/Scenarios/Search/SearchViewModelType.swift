@@ -10,7 +10,8 @@ import ReactiveSwift
 
 protocol SearchViewModelTypeInputs {
   var dismiss: Action<Void, Void, Never> { get }
-  var search: Action<String, String, Never> { get}
+  var search: Action<String, String, Never> { get }
+  var repoDetails: Action<String, String, Never> { get }
 }
 
 protocol SearchViewModelTypeOutputs {

@@ -7,8 +7,16 @@
 //
 
 import IGListKit
+import ReactiveSwift
 
 class SearchSectionController: ListGenericSectionController<SearchSectionModel> {
+
+  private let onSelectRepo: BindingTarget<String>?
+
+  init(onSelectRepo: BindingTarget<String>? = nil) {
+    self.onSelectRepo = onSelectRepo
+  }
+
   override func sizeForItem(at index: Int) -> CGSize {
     return CGSize(width: collectionContext!.containerSize.width, height: 120)
   }
@@ -29,5 +37,12 @@ class SearchSectionController: ListGenericSectionController<SearchSectionModel> 
     cell.update(with: model)
 
     return cell
+  }
+
+  override func didSelectItem(at index: Int) {
+    guard let model = object else {
+      preconditionFailure("Model is not configured")
+    }
+    onSelectRepo <~ MutableProperty(model.name)
   }
 }

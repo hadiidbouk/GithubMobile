@@ -43,6 +43,13 @@ class SearchCoordinator: Coordinator {
     viewController = searchViewController
 
     reactive.dismiss <~ searchViewModel.dismiss.values
+    reactive.repoDetails <~ searchViewModel.repoDetails.values
+  }
+}
+
+extension SearchCoordinator: RepoDetailsCoordinator.Delegate {
+  func repoDetailsCoordinatorDidDismiss(_ coordinator: RepoDetailsCoordinator) {
+    childCompleted(coordinator: coordinator)
   }
 }
 
@@ -52,10 +59,11 @@ private extension SearchCoordinator {
     delegate?.searchCoordinatorDidDismiss(self)
   }
 
-  func repoDetails() {
+  func repoDetails(repositoryName: String) {
     let repoDetailsCoordinator = RepoDetailsCoordinator(presentViewController: presentViewController,
                                                         credential: credential,
-                                                        useCaseProvider: useCaseProvider)
+                                                        useCaseProvider: useCaseProvider,
+                                                        repositoryName: repositoryName)
     repoDetailsCoordinator.start()
     childCoordinators.append(repoDetailsCoordinator)
   }
@@ -68,9 +76,9 @@ private extension Reactive where Base: SearchCoordinator {
     }
   }
 
-  var repoDetails: BindingTarget<Void> {
-    return makeBindingTarget { base, _ in
-      base.repoDetails()
+  var repoDetails: BindingTarget<String> {
+    return makeBindingTarget { base, repositoryName in
+      base.repoDetails(repositoryName: repositoryName)
     }
   }
 }
