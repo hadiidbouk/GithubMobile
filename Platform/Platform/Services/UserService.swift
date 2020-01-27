@@ -52,3 +52,9 @@ extension UserService: TargetType {
     }
   }
 }
+
+extension UserService: CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy {
+      return .useProtocolCachePolicy
+    }
+}

@@ -17,7 +17,7 @@ class UsersRepository {
   private let userConverter: UserConverter
   private let eventConverter: EventConverter
 
-  init(provider: MoyaProvider<UserService> = MoyaProvider<UserService>(),
+  init(provider: MoyaProvider<UserService> = MoyaProvider<UserService>(plugins: [CachePolicyPlugin()]),
        logger: XCGLogger? = nil,
        userConverter: UserConverter = UserConverter(),
        eventConverter: EventConverter = EventConverter()) {
