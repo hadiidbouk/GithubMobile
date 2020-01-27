@@ -7,8 +7,46 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 class NavigationBarView: UIView {
+
+  private lazy var titleLabel: UILabel = {
+    let label = UILabel()
+    label.text = "GithubMobile"
+    label.font = UIFont.boldSystemFont(ofSize: 14)
+    addSubview(label)
+    return label
+  }()
+
+  private lazy var imageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.image = #imageLiteral(resourceName: "avatar_placeholder")
+    imageView.contentMode = .scaleAspectFit
+    addSubview(imageView)
+    return imageView
+  }()
+
+  lazy var searchButton: UIButton = {
+    let button = UIButton(type: .custom)
+    button.setImage(#imageLiteral(resourceName: "search"), for: .normal)
+    button.setImage(#imageLiteral(resourceName: "search_highlighted"), for: .highlighted)
+    button.imageView?.contentMode = .scaleAspectFit
+    addSubview(button)
+    return button
+  }()
+
+  lazy var backButton: UIButton = {
+    let button = UIButton(type: .custom)
+    button.setImage(#imageLiteral(resourceName: "back"), for: .normal)
+    button.setImage(#imageLiteral(resourceName: "back_highlighted"), for: .highlighted)
+    button.imageView?.contentMode = .scaleAspectFit
+    addSubview(button)
+    return button
+  }()
+
+  var isSearchButtonVisible = MutableProperty(true)
+  var isBackButtonVisible = MutableProperty(false)
 
   init() {
     super.init(frame: .zero)
@@ -37,6 +75,12 @@ extension NavigationBarView {
 
 private extension NavigationBarView {
   func setup() {
+    setupView()
+    setupConstraints()
+    setupBindings()
+  }
+
+  func setupView() {
     backgroundColor = AppColors.Shared.navigationBarBackgroundColor
     layer.shadowColor = AppColors.Shared.navigationBarShadowColor.cgColor
     layer.masksToBounds = false
@@ -44,4 +88,53 @@ private extension NavigationBarView {
     layer.shadowOpacity = 1.0
     layer.shadowRadius = 1.0
   }
+
+  func setupBindings() {
+    searchButton.reactive.isHidden <~ isSearchButtonVisible.negate()
+    backButton.reactive.isHidden <~ isBackButtonVisible.negate()
+    titleLabel.reactive.isHidden <~ isBackButtonVisible
+  }
 }
+
+// MARK: - Constraints
+private extension NavigationBarView {
+  func setupConstraints() {
+    setupImageViewConstraints()
+    setupTitleLabelConstraints()
+    setupSearchButtonConstraints()
+    setupBackButtonConstraints()
+  }
+
+  func setupImageViewConstraints() {
+    imageView.centerToParentHorizontal()
+    imageView.bottomConstraint(constant: -10)
+    imageView.widthConstraint(constant: 25)
+    imageView.heightConstraint(constant: 25)
+  }
+
+  func setupTitleLabelConstraints() {
+    titleLabel.apply {
+      $0.leadingConstraint(constant: 20)
+      $0.centerVertical(dependingOn: imageView)
+    }
+  }
+
+  func setupSearchButtonConstraints() {
+    searchButton.apply {
+      $0.trailingConstaint(constant: -20)
+      $0.centerVertical(dependingOn: imageView)
+      $0.widthConstraint(constant: 20)
+      $0.heightConstraint(constant: 20)
+    }
+  }
+
+  func setupBackButtonConstraints() {
+    backButton.apply {
+      $0.leadingConstraint(constant: 20)
+      $0.centerVertical(dependingOn: imageView)
+      $0.widthConstraint(constant: 20)
+      $0.heightConstraint(constant: 20)
+    }
+  }
+}
+

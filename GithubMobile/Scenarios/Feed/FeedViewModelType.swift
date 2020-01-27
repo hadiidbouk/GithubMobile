@@ -13,6 +13,7 @@ protocol FeedViewModelTypeInputs {
   var isVisible: MutableProperty<Bool> { get }
   var loadOldSections: Action<Int, Int, Error> { get }
   var refresh: Action<Void, Void, Error> { get }
+  var search: Action<Void, Void, Never> { get }
 }
 
 protocol FeedViewModelTypeOutputs {

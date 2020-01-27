@@ -13,14 +13,15 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
   private typealias loadReceivedEventsInput = (User, Int)
 
   let isLoading: Property<Bool>
-  let loadOldSections: Action<Int, Int, Error>
-  let refresh: Action<Void, Void, Error>
   let sections: Property<[FeedSectionModel]>
-
-  let page: Property<Int>
-  let isVisible =  MutableProperty<Bool>(false)
   let isLoadingOldSections: Property<Bool>
   let isRefreshing: Property<Bool>
+  let page: Property<Int>
+  
+  let isVisible =  MutableProperty<Bool>(false)
+  let loadOldSections: Action<Int, Int, Error>
+  let refresh: Action<Void, Void, Error>
+  let search: Action<Void, Void, Never>
 
   var inputs: FeedViewModelTypeInputs { return self }
   var outputs: FeedViewModelTypeOutputs { return self }
@@ -87,5 +88,7 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
     }
 
     isRefreshing = loadNewEvents.isExecuting
+
+    search = Action { SignalProducer(value: $0) }
   }
 }
