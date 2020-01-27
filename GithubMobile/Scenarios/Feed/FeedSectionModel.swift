@@ -35,17 +35,20 @@ extension FeedSectionModel {
     case fork
     case create(repository: Repository)
     case makePublic(repository: Repository)
+    case notSupported
 
     static func == (lhs: Action, rhs: Action) -> Bool {
           switch (lhs, rhs) {
           case let (.star(lhsRepository), .star(rhsRepository)):              return lhsRepository == rhsRepository
           case let (.create(lhsRepository), .create(rhsRepository)):          return lhsRepository == rhsRepository
           case let (.makePublic(lhsRepository), .makePublic(rhsRepository)):  return lhsRepository == rhsRepository
-          case (.fork, .fork):  return true
+          case (.fork, .fork):                                                return true
+          case (.notSupported, .notSupported):                                return true
           case (.star, _),
                (.fork, _),
                (.create, _),
-               (.makePublic, _):                                              return false
+               (.makePublic, _),
+               (.notSupported, _):                                            return false
       }
     }
   }

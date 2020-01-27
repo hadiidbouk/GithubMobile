@@ -26,7 +26,7 @@ private extension FeedSectionConverter {
     case .create: return FeedSectionModel.Action.create(repository: from(event.repo)).description
     case .public: return FeedSectionModel.Action.makePublic(repository: from(event.repo)).description
     case .fork:   return FeedSectionModel.Action.fork.description
-    default:      return FeedSectionModel.Action.fork.description
+    default:      return FeedSectionModel.Action.notSupported.description
     }
   }
   func from(_ repo: Event.Repositroy) -> FeedSectionModel.Repository {
@@ -41,6 +41,7 @@ private extension FeedSectionModel.Action {
     case .fork:                       return attributedText(normalText: "Forked", boldText: "")
     case .create(let repository):     return attributedText(normalText: "Created", boldText: repository.name)
     case .makePublic(let repository): return attributedText(normalText: "Created", boldText: repository.name, postfix: "public")
+    case .notSupported:               return attributedText(normalText: "", boldText: "Not Supported")
     }
   }
 
