@@ -11,10 +11,17 @@ import Domain
 import OAuthSwift
 import ReactiveSwift
 
-class SearchCoordinator: Coordinator {
+protocol SearchCoordinatorDelegate: class {
+  func searchCoordinatorDidDismiss(_ coordinator: SearchCoordinator)
+}
 
+class SearchCoordinator: Coordinator {
+  typealias Delegate = SearchCoordinatorDelegate
+  
   var viewModel: SearchViewModel?
   var viewController: SearchViewController?
+
+  weak var delegate: Delegate?
 
   private let presentViewController: UINavigationController
   private let credential: OAuthSwiftCredential
@@ -42,6 +49,7 @@ class SearchCoordinator: Coordinator {
 private extension SearchCoordinator {
   func dismiss() {
     presentViewController.popViewController(animated: true)
+    delegate?.searchCoordinatorDidDismiss(self)
   }
 
   func repoDetails() {

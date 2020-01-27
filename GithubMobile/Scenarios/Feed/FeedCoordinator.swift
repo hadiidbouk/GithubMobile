@@ -36,6 +36,12 @@ class FeedCoordinator: Coordinator {
   }
 }
 
+extension FeedCoordinator: SearchCoordinator.Delegate {
+  func searchCoordinatorDidDismiss(_ coordinator: SearchCoordinator) {
+    childCompleted(coordinator: coordinator)
+  }
+}
+
 private extension FeedCoordinator {
   func search() {
     let searchCoordinator = SearchCoordinator(presentViewController: presentViewController,
