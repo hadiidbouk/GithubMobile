@@ -9,5 +9,5 @@
 import ReactiveSwift
 
 public protocol GetSearchRepositoriesUseCase {
-  func search(by query: String, page: Int) -> SignalProducer<SearchRepositoryResult, Error>
+  func search(by query: String, page: Int, token: String) -> SignalProducer<SearchRepositoryResult, Error>
 }

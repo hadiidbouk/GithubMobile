@@ -29,7 +29,7 @@ extension SearchRepositoryResultResponse {
     public let id: SearchRepositoryResult.Repository.Identifier
     public let fullName: String
     public let stars: Int
-    public let description: String
+    public let description: String?
 
     private enum CodingKeys: String, CodingKey {
       case id
@@ -43,7 +43,7 @@ extension SearchRepositoryResultResponse {
       self.id = try container.decode(SearchRepositoryResult.Repository.Identifier.self, forKey: .id)
       self.fullName = try container.decode(String.self, forKey: .fullName)
       self.stars = try container.decode(Int.self, forKey: .stars)
-      self.description = try container.decode(String.self, forKey: .description)
+      self.description = try? container.decode(String.self, forKey: .description)
     }
   }
 }

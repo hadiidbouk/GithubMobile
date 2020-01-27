@@ -38,6 +38,8 @@
 		0FA0232C23DF23DA000FE8B8 /* SearchSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0232B23DF23DA000FE8B8 /* SearchSectionModel.swift */; };
 		0FA0232E23DF2515000FE8B8 /* SearchSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0232D23DF2515000FE8B8 /* SearchSectionController.swift */; };
 		0FA0233023DF254E000FE8B8 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0232F23DF254E000FE8B8 /* SearchCollectionViewCell.swift */; };
+		0FA0234223DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */; };
+		0FA0234423DF54D2000FE8B8 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234323DF54D2000FE8B8 /* Int+Extensions.swift */; };
 		0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A323DC95500066B4F4 /* FeedViewController.swift */; };
 		0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */; };
 		0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */; };
@@ -102,6 +104,8 @@
 		0FA0232B23DF23DA000FE8B8 /* SearchSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSectionModel.swift; sourceTree = "<group>"; };
 		0FA0232D23DF2515000FE8B8 /* SearchSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSectionController.swift; sourceTree = "<group>"; };
 		0FA0232F23DF254E000FE8B8 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositorySectionConverter.swift; sourceTree = "<group>"; };
+		0FA0234323DF54D2000FE8B8 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		0FCD24A323DC95500066B4F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OAuthSwiftCredential+Extensions.swift"; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 				0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */,
 				0F8DA43E23DE3C3500ABF254 /* ListAdapter+Extensions.swift */,
 				0F8DA44023DE3EB900ABF254 /* Kingfisher+Extensions.swift */,
+				0FA0234323DF54D2000FE8B8 /* Int+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				0FA0232B23DF23DA000FE8B8 /* SearchSectionModel.swift */,
 				0FA0232D23DF2515000FE8B8 /* SearchSectionController.swift */,
 				0FA0232F23DF254E000FE8B8 /* SearchCollectionViewCell.swift */,
+				0FA0234123DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -502,6 +508,8 @@
 				0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */,
 				0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */,
 				0F54214E23DA444A007F976C /* LoginViewController.swift in Sources */,
+				0FA0234423DF54D2000FE8B8 /* Int+Extensions.swift in Sources */,
+				0FA0234223DF51DE000FE8B8 /* SearchRepositorySectionConverter.swift in Sources */,
 				0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */,
 				0FA0232C23DF23DA000FE8B8 /* SearchSectionModel.swift in Sources */,
 				0FD6E01F23DB2C7C0035A897 /* AuthConfig.swift in Sources */,

@@ -28,7 +28,8 @@ class SearchCoordinator: Coordinator {
     self.useCaseProvider = useCaseProvider
   }
   func start() {
-    let searchViewModel = SearchViewModel()
+    let searchViewModel = SearchViewModel(token: credential.oauthToken,
+                                          getSearchRepositoriesUseCase: useCaseProvider.makeGetSearchRepositoriesUseCase())
     let searchViewController = SearchViewController(viewModel: searchViewModel)
     presentViewController.pushViewController(searchViewController, animated: true)
 

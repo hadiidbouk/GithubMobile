@@ -6,29 +6,37 @@
 //  Copyright © 2020 Hadi Dbouk. All rights reserved.
 //
 
+import Domain
 import ReactiveSwift
 
 class SearchViewModel: SearchViewModelType, SearchViewModelTypeInputs, SearchViewModelTypeOutputs {
 
   let dismiss: Action<Void, Void, Never>
+  let search: Action<String, String, Never>
 
   let sections: Property<[SearchSectionModel]>
 
   var outputs: SearchViewModelTypeOutputs { return self }
   var inputs: SearchViewModelTypeInputs { return self }
 
-  init() {
+  private let loadRepositories: Action<String, SearchRepositoryResult, Error>
+  private let mutableSections = MutableProperty<[SearchSectionModel]>([])
+
+  init(token: String,
+       initialPageNumber: Int = 1,
+       maxPageNumber: Int = 9,
+       getSearchRepositoriesUseCase: GetSearchRepositoriesUseCase,
+       searchRepositoryConverter: SearchRepositorySectionConverter = SearchRepositorySectionConverter()) {
     dismiss = Action { SignalProducer(value: $0) }
 
-    let description = "MarvelAR is an iOS application that present Marvel Heroes 3D Models Using ARKit."
-    let data = [SearchSectionModel(id: 1, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 2, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 3, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 4, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 5, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 6, name: "TideSec/WDScanner", stars: 15, description: description),
-                SearchSectionModel(id: 7, name: "TideSec/WDScanner", stars: 15, description: description)]
-    sections = Property(value: data)
+    search = Action { SignalProducer(value: $0) }
+
+    loadRepositories = Action { getSearchRepositoriesUseCase.search(by: $0, page: initialPageNumber, token: token) }
+    loadRepositories <~ search.values
+    mutableSections <~ loadRepositories.values.map { searchRepositoryConverter.from($0.items) }
+    sections = Property(mutableSections)
+
+    mutableSections <~ search.values.map(value: [])
   }
 }
 

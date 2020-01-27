@@ -23,10 +23,14 @@ extension TargetType {
   }
 
   func requestHeaders(token: String = "") -> [String: String] {
-    return [
+    var headers =  [
       "Accept": "application/json",
-      "Content-type": "application/json",
-      "Authorization": "Bearer \(token)"
+      "Content-type": "application/json"
     ]
+
+    if token != "" {
+      headers["Authorization"] = "Bearer \(token)"
+    }
+    return headers
   }
 }

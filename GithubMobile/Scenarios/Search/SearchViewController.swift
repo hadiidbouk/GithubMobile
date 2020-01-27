@@ -90,6 +90,9 @@ private extension SearchViewController {
 
   func setupBindings() {
     navigationBarView.backButton.reactive.pressed = CocoaAction(viewModel.inputs.dismiss)
+    viewModel.inputs.search <~ searchTextField.reactive.continuousTextValues
+
+    adapter.reactive.performUpdates <~ viewModel.outputs.sections.map(value: ())
   }
 }
 

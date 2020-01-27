@@ -26,9 +26,9 @@ public extension SearchRepositoryResult {
     public let id: Identifier
     public let fullName: String
     public let stars: Int
-    public let description: String
+    public let description: String?
 
-    public init(id: Identifier, fullName: String, stars: Int, description: String) {
+    public init(id: Identifier, fullName: String, stars: Int, description: String?) {
       self.id = id
       self.fullName = fullName
       self.stars = stars

@@ -9,7 +9,7 @@
 import Moya
 
 enum SearchService {
-  case searchRepository(query: String, page: Int)
+  case searchRepository(query: String, page: Int, token: String)
 }
 
 extension SearchService: TargetType {
@@ -30,7 +30,7 @@ extension SearchService: TargetType {
 
   var task: Task {
     switch self {
-    case .searchRepository(let query, let page):
+    case .searchRepository(let query, let page, _):
       var parameters: [String: Any] = [:]
       parameters["page"] = page
       parameters["q"] = query
@@ -40,7 +40,7 @@ extension SearchService: TargetType {
 
   var headers: [String : String]? {
     switch self {
-    case .searchRepository: return requestHeaders()
+    case .searchRepository(_, _, let token): return requestHeaders(token: token)
     }
   }
 

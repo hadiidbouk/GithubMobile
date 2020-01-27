@@ -24,8 +24,8 @@ class SearchRepository {
     self.searchRepositoryConverter = searchRepositoryConverter
    }
 
-  func search(by query: String, page: Int) -> SignalProducer<SearchRepositoryResult, Error> {
-    return provider.defaultRequest(.searchRepository(query: query, page: page), of: SearchRepositoryResultResponse.self)
+  func search(by query: String, page: Int, token: String) -> SignalProducer<SearchRepositoryResult, Error> {
+    return provider.defaultRequest(.searchRepository(query: query, page: page, token: token), of: SearchRepositoryResultResponse.self)
     .map(searchRepositoryConverter.from)
     .on(failed: { [weak self] error in
       self?.logger?.error("Unable to get repositories search result. Error: \(error)")

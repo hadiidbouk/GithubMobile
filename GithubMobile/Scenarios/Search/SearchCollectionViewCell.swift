@@ -35,6 +35,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont.boldSystemFont(ofSize: 14)
+    label.adjustsFontSizeToFitWidth = true
+    label.baselineAdjustment = .alignCenters
     cellContentView.addSubview(label)
     return label
   }()
@@ -43,8 +45,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     let label = UILabel()
     label.font = UIFont.systemFont(ofSize: 13)
     label.numberOfLines = 0
-      label.adjustsFontSizeToFitWidth = true
-      label.baselineAdjustment = .alignCenters
+    label.adjustsFontSizeToFitWidth = true
+    label.baselineAdjustment = .alignCenters
     cellContentView.addSubview(label)
     return label
   }()
@@ -97,6 +99,7 @@ private extension SearchCollectionViewCell {
     let nonNilModel = model.producer.skipNil()
     titleLabel.reactive.text <~ nonNilModel.map(\.name)
     descriptionLabel.reactive.text <~ nonNilModel.map(\.description)
+    starsCountLabel.reactive.text <~ nonNilModel.map(\.stars.roundedWithAbbreviations)
   }
 }
 
@@ -133,6 +136,7 @@ private extension SearchCollectionViewCell {
     titleLabel.apply {
       $0.leadingConstraint(onTrailingOf: bookImageView, constant: 10)
       $0.centerVertical(dependingOn: bookImageView)
+      $0.trailingConstaint(constant: -40)
     }
   }
 

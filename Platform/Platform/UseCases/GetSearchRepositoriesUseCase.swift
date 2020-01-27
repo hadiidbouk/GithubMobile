@@ -23,9 +23,10 @@ public class GetSearchRepositoriesUseCase: Domain.GetSearchRepositoriesUseCase {
   /// - Parameters:
   ///   - query: the query used to search the repositories names
   ///   - page: the page used in repositories list pagination
+  ///   - token: the OAuth2 token returned from the server
   /// - Returns: A Producer which sends one object.
   ///
-  public func search(by query: String, page: Int) -> SignalProducer<SearchRepositoryResult, Error> {
-    return repository.search(by: query, page: page)
+  public func search(by query: String, page: Int, token: String) -> SignalProducer<SearchRepositoryResult, Error> {
+    return repository.search(by: query, page: page, token: token)
   }
 }
