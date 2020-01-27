@@ -104,7 +104,7 @@ private extension FeedViewController {
   }
 
   func setupView() {
-    view.backgroundColor = AppColors.Feed.backgroundColor
+    view.backgroundColor = AppColors.Shared.backgroundColor
     navigationBarView.attachToTop(of: view)
   }
 
@@ -117,6 +117,7 @@ private extension FeedViewController {
   func setupBindings() {
     viewModel.inputs.isVisible <~ isVisible
     refreshControl.reactive.refresh = CocoaAction(viewModel.inputs.refresh)
+    navigationBarView.searchButton.reactive.pressed = CocoaAction(viewModel.inputs.search)
 
     loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
     refreshControl.reactive.isRefreshing <~ viewModel.outputs.isRefreshing

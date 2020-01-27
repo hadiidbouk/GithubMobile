@@ -9,6 +9,7 @@
 import UIKit
 import OAuthSwift
 import Domain
+import ReactiveSwift
 
 class FeedCoordinator: Coordinator {
 
@@ -27,14 +28,31 @@ class FeedCoordinator: Coordinator {
   }
 
   func start() {
-    guard let oauth = OAuthSwiftCredential.load() else {
-      return
-    }
-    let viewModel = FeedViewModel(token: oauth.oauthToken,
-                                  getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase(),
-                                  getReceivedEventsUseCase: useCaseProvider.makeGetUserReceivedEventsUseCase())
-    let feedViewController = FeedViewController(viewModel: viewModel)
+    let feedViewModel = FeedViewModel(token: credential.oauthToken,
+                                      getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase(),
+                                      getReceivedEventsUseCase: useCaseProvider.makeGetUserReceivedEventsUseCase())
+    let feedViewController = FeedViewController(viewModel: feedViewModel)
     presentViewController.pushViewController(feedViewController, animated: true)
     viewController = feedViewController
+
+    reactive.search <~ feedViewModel.inputs.search.values
+  }
+}
+
+private extension FeedCoordinator {
+  func search() {
+    let searchCoordinator = SearchCoordinator(presentViewController: presentViewController,
+                                              credential: credential,
+                                              useCaseProvider: useCaseProvider)
+    searchCoordinator.start()
+    childCoordinators.append(searchCoordinator)
+  }
+}
+
+private extension Reactive where Base: FeedCoordinator {
+  var search: BindingTarget<Void> {
+    return makeBindingTarget { base, _ in
+      base.search()
+    }
   }
 }

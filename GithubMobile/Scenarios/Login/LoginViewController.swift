@@ -84,7 +84,7 @@ private extension LoginViewController {
   }
 
   func setupView() {
-    view.backgroundColor = AppColors.Login.backgroundColor
+    view.backgroundColor = AppColors.Shared.backgroundColor
   }
 
   func setupBindings() {
