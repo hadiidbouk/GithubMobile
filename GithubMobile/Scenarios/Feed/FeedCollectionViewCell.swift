@@ -26,8 +26,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var avatarImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = #imageLiteral(resourceName: "avatar_placeholder")
-    imageView.roundedCorners(10)
+    imageView.roundedCorners(15)
     imageView.contentMode = .scaleAspectFit
     cellContentView.addSubview(imageView)
     return imageView
@@ -35,7 +34,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var usernameLabel: UILabel = {
     let label = UILabel()
-    label.text = "hadiidbouk"
     label.textColor = AppColors.Feed.cellUsernameLabelTextColor
     label.font = UIFont.systemFont(ofSize: 13)
     cellContentView.addSubview(label)
@@ -53,7 +51,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var descriptionLabel: UILabel = {
     let label = UILabel()
-    label.text = "Starred abeade/fcm-push-pliugin Starred abeade/fcm-push-pliugin Starred abeade/fcm-push-pliugin Starred abeade/fcm-push-pliugin"
     label.textColor = AppColors.Feed.cellDescriptionLabelTextColor
     label.numberOfLines = 0
     label.font = UIFont.systemFont(ofSize: 15)
@@ -96,6 +93,7 @@ private extension FeedCollectionViewCell {
     usernameLabel.reactive.text <~ nonNilModel.map(\.actorName)
     timeAgoLabel.reactive.text <~ nonNilModel.map(\.createdAt.timeAgo)
     descriptionLabel.reactive.attributedText <~ nonNilModel.map(\.description)
+    avatarImageView.reactive.imageWithPlaceholder <~ nonNilModel.map { ($0.avatarUrl, #imageLiteral(resourceName: "avatar_placeholder")) }
   }
 }
 

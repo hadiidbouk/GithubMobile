@@ -21,6 +21,7 @@
 		0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */; };
 		0F8DA43D23DE372A00ABF254 /* FeedSectionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43C23DE372A00ABF254 /* FeedSectionConverter.swift */; };
 		0F8DA43F23DE3C3500ABF254 /* ListAdapter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA43E23DE3C3500ABF254 /* ListAdapter+Extensions.swift */; };
+		0F8DA44123DE3EB900ABF254 /* Kingfisher+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8DA44023DE3EB900ABF254 /* Kingfisher+Extensions.swift */; };
 		0F9B3F9C23DA47FC00D79A72 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */; };
 		0F9B3F9E23DA481400D79A72 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */; };
 		0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */; };
@@ -76,6 +77,7 @@
 		0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		0F8DA43C23DE372A00ABF254 /* FeedSectionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSectionConverter.swift; sourceTree = "<group>"; };
 		0F8DA43E23DE3C3500ABF254 /* ListAdapter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListAdapter+Extensions.swift"; sourceTree = "<group>"; };
+		0F8DA44023DE3EB900ABF254 /* Kingfisher+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3F9B23DA47FC00D79A72 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		0F9B3F9D23DA481400D79A72 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0F9B3FA123DA489200D79A72 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				0F8DA43723DE1BAF00ABF254 /* UIApplication+Extensions.swift */,
 				0F8DA43A23DE234000ABF254 /* Date+Extensions.swift */,
 				0F8DA43E23DE3C3500ABF254 /* ListAdapter+Extensions.swift */,
+				0F8DA44023DE3EB900ABF254 /* Kingfisher+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				0F8DA42A23DDF40C00ABF254 /* FeedViewModelType.swift in Sources */,
 				0F8DA43D23DE372A00ABF254 /* FeedSectionConverter.swift in Sources */,
 				0F8DA43623DE1A7600ABF254 /* NavigationBarView.swift in Sources */,
+				0F8DA44123DE3EB900ABF254 /* Kingfisher+Extensions.swift in Sources */,
 				0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */,
 				0FCD24AF23DCE8180066B4F4 /* FeedSectionController.swift in Sources */,
 				0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */,
