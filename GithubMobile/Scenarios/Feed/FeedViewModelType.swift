@@ -11,7 +11,8 @@ import ReactiveSwift
 
 protocol FeedViewModelTypeInputs {
   var isVisible: MutableProperty<Bool> { get }
-  var loadOldSections: Action<Int, Int, Never> { get }
+  var loadOldSections: Action<Int, Int, Error> { get }
+  var refresh: Action<Void, Void, Error> { get }
 }
 
 protocol FeedViewModelTypeOutputs {
@@ -19,6 +20,7 @@ protocol FeedViewModelTypeOutputs {
   var sections: Property<[FeedSectionModel]> { get }
   var isLoadingOldSections: Property<Bool> { get }
   var page: Property<Int> { get }
+  var isRefreshing: Property<Bool> { get }
 }
 
 protocol FeedViewModelType {

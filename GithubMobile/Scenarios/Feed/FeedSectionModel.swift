@@ -54,6 +54,21 @@ extension FeedSectionModel {
   }
 }
 
+extension FeedSectionModel: Hashable {
+
+  func hash(into hasher: inout Hasher) {
+
+  }
+
+  static func == (lhs: FeedSectionModel, rhs: FeedSectionModel) -> Bool {
+    return lhs.id == rhs.id &&
+           lhs.actorName == rhs.actorName &&
+           lhs.avatarUrl == rhs.avatarUrl &&
+           lhs.description == rhs.description &&
+           lhs.createdAt == rhs.createdAt
+  }
+}
+
 extension FeedSectionModel: ListDiffable {
   func diffIdentifier() -> NSObjectProtocol {
     return id as NSString

@@ -13,32 +13,35 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
   private typealias loadReceivedEventsInput = (User, Int)
 
   let isLoading: Property<Bool>
-  let loadOldSections: Action<Int, Int, Never>
+  let loadOldSections: Action<Int, Int, Error>
+  let refresh: Action<Void, Void, Error>
   let sections: Property<[FeedSectionModel]>
 
   let page: Property<Int>
   let isVisible =  MutableProperty<Bool>(false)
   let isLoadingOldSections: Property<Bool>
+  let isRefreshing: Property<Bool>
 
   var inputs: FeedViewModelTypeInputs { return self }
   var outputs: FeedViewModelTypeOutputs { return self }
 
   private let loadUser: Action<Void, User, Error>
   private let loadReceivedEvents: Action<loadReceivedEventsInput, [Event], Error>
-
+  private let loadNewEvents: Action<User, [Event], Error>
   private let mutableSectionModels = MutableProperty<[FeedSectionModel]>([])
+  private let mutableOldSectionModels = MutableProperty<[FeedSectionModel]>([])
   private let mutableNewSectionModels = MutableProperty<[FeedSectionModel]>([])
   private let mutablePage: MutableProperty<Int>
   private let mutableIsLoadingOldSections = MutableProperty(false)
 
   init(token: String,
-       pageNumber: Int = 1,
+       initialPageNumber: Int = 1,
        maxPageNumber: Int = 9,
        getAuthenticatedUserUseCase: GetAuthenticatedUserUseCase,
        getReceivedEventsUseCase: GetUserReceivedEventsUseCase,
        feedSectionConverter: FeedSectionConverter = FeedSectionConverter()) {
 
-    mutablePage = MutableProperty(pageNumber)
+    mutablePage = MutableProperty(initialPageNumber)
     page = Property(mutablePage)
 
     loadUser = Action { getAuthenticatedUserUseCase.get(token: token) }
@@ -54,8 +57,8 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
 
     sections = Property(mutableSectionModels)
 
-    mutableNewSectionModels <~ loadReceivedEvents.values.map { $0.map(feedSectionConverter.from) }
-    mutableSectionModels <~ mutableSectionModels.producer.sample(with: mutableNewSectionModels.producer).map { input -> [FeedSectionModel] in
+    mutableOldSectionModels <~ loadReceivedEvents.values.map { $0.map(feedSectionConverter.from) }
+    mutableSectionModels <~ mutableSectionModels.producer.sample(with: mutableOldSectionModels.producer).map { input -> [FeedSectionModel] in
       var (models, newModels) = input
       models.append(contentsOf: newModels)
       return models
@@ -65,8 +68,24 @@ class FeedViewModel: FeedViewModelType, FeedViewModelTypeInputs, FeedViewModelTy
     isLoadingOldSections = Property(mutableIsLoadingOldSections)
 
     mutableIsLoadingOldSections <~ loadOldSections.values.map(value: true)
-    mutableIsLoadingOldSections <~ mutableNewSectionModels.map(value: false)
+    mutableIsLoadingOldSections <~ mutableOldSectionModels.map(value: false)
 
     mutablePage <~ loadOldSections.values
+
+    refresh = Action { SignalProducer(value: $0) }
+    loadNewEvents = Action { getReceivedEventsUseCase.get(token: token, username: $0.username, page: initialPageNumber) }
+    loadNewEvents <~ loadUser.values.sample(with: refresh.values).map { $0.0 }
+
+    mutableNewSectionModels <~ loadNewEvents.values.map { $0.map(feedSectionConverter.from) }
+    mutableSectionModels <~ mutableSectionModels.producer.sample(with: mutableNewSectionModels.producer).map { input -> [FeedSectionModel] in
+      var (models, newModels) = input
+      let setModels = Set(models)
+      let setNewModels = Set(newModels)
+      let newSet = setNewModels.subtracting(setModels)
+      models.insert(contentsOf: Array(newSet), at: 0)
+      return models
+    }
+
+    isRefreshing = loadNewEvents.isExecuting
   }
 }

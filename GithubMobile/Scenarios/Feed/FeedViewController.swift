@@ -9,6 +9,7 @@
 import UIKit
 import IGListKit
 import ReactiveSwift
+import ReactiveCocoa
 
 class FeedViewController: BaseViewController {
 
@@ -25,6 +26,12 @@ class FeedViewController: BaseViewController {
     collectionView.showsHorizontalScrollIndicator = false
     view.addSubview(collectionView)
     return collectionView
+  }()
+
+  private lazy var refreshControl: UIRefreshControl = {
+    let refreshControl = UIRefreshControl()
+    collectionView.addSubview(refreshControl)
+    return refreshControl
   }()
 
   private lazy var loadingView: LoadingView = {
@@ -109,8 +116,10 @@ private extension FeedViewController {
 
   func setupBindings() {
     viewModel.inputs.isVisible <~ isVisible
+    refreshControl.reactive.refresh = CocoaAction(viewModel.inputs.refresh)
 
     loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
+    refreshControl.reactive.isRefreshing <~ viewModel.outputs.isRefreshing
     adapter.reactive.performUpdates <~ viewModel.outputs.sections.map(value: ())
   }
 }
