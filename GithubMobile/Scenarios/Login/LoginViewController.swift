@@ -14,12 +14,12 @@ class LoginViewController: BaseViewController {
 
   private lazy var contentView: UIView = {
     let contentView = UIView()
-    contentView.backgroundColor = AppColors.Login.loginButtonTextColor
-    contentView.layer.borderColor = AppColors.Login.contentBorderColor.cgColor
+    contentView.backgroundColor = AppColors.login.loginButtonTextColor
+    contentView.layer.borderColor = AppColors.login.contentBorderColor.cgColor
     contentView.layer.borderWidth = 1
     contentView.layer.masksToBounds = false
     contentView.layer.shadowOffset = CGSize(width: 0.3, height: 0.3)
-    contentView.layer.shadowColor = AppColors.Login.contentShadowColor.cgColor
+    contentView.layer.shadowColor = AppColors.login.contentShadowColor.cgColor
     contentView.layer.shadowOpacity = 0.2
     view.addSubview(contentView)
     return contentView
@@ -30,14 +30,14 @@ class LoginViewController: BaseViewController {
     label.text = "GitHubMobile"
     label.font = UIFont.boldSystemFont(ofSize: 30)
     label.textAlignment = .center
-    label.textColor = AppColors.Login.titleTextColor
+    label.textColor = AppColors.login.titleTextColor
     contentView.addSubview(label)
     return label
   }()
 
   private lazy var dividerView: UIView = {
     let dividerView = UIView()
-    dividerView.backgroundColor = AppColors.Shared.dividerColor
+    dividerView.backgroundColor = AppColors.global.dividerColor
     contentView.addSubview(dividerView)
     return dividerView
   }()
@@ -46,7 +46,7 @@ class LoginViewController: BaseViewController {
     let button = UIButton(type: .custom)
     button.setTitle("Log in with GitHub", for: .normal)
     button.setTitleColor(.white, for: .normal)
-    button.backgroundColor = AppColors.Login.loginButtonBackgroundColor
+    button.backgroundColor = AppColors.login.loginButtonBackgroundColor
     button.roundedCorners(5)
     button.setImage(#imageLiteral(resourceName: "github_icon"), for: .normal)
     button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 20)
@@ -84,7 +84,7 @@ private extension LoginViewController {
   }
 
   func setupView() {
-    view.backgroundColor = AppColors.Shared.backgroundColor
+    view.backgroundColor = AppColors.global.backgroundColor
   }
 
   func setupBindings() {

@@ -13,12 +13,12 @@ class SearchCollectionViewCell: UICollectionViewCell {
 
   private lazy var cellContentView: UIView = {
     let view = UIView()
-    view.backgroundColor = AppColors.Feed.cellBackgroundColor
-    view.layer.borderColor = AppColors.Feed.cellBorderColor.cgColor
+    view.backgroundColor = AppColors.feed.cellBackgroundColor
+    view.layer.borderColor = AppColors.feed.cellBorderColor.cgColor
     view.layer.borderWidth = 1
     view.layer.masksToBounds = false
     view.layer.shadowOffset = CGSize(width: 0.3, height: 0.3)
-    view.layer.shadowColor = AppColors.Feed.cellShadowColor.cgColor
+    view.layer.shadowColor = AppColors.feed.cellShadowColor.cgColor
     view.layer.shadowOpacity = 0.2
     contentView.addSubview(view)
     return view

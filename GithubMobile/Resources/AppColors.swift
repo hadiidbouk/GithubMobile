@@ -9,7 +9,7 @@
 import UIKit
 
 struct AppColors {
-  struct Login {
+  struct login {
     static let contentShadowColor = UIColor(hex: "#c2c2c2")
     static let contentBorderColor = UIColor(hex: "#d6d6d6")
     static let contentBackgroundColor = UIColor(hex: "#ffffff")
@@ -18,7 +18,7 @@ struct AppColors {
     static let loginButtonTextColor = UIColor.white
   }
 
-  struct Feed {
+  struct feed {
     static let cellShadowColor = UIColor(hex: "#c2c2c2")
     static let cellBorderColor = UIColor(hex: "#d6d6d6")
     static let cellBackgroundColor = UIColor(hex: "#ffffff")
@@ -27,7 +27,7 @@ struct AppColors {
     static let cellDescriptionLabelTextColor = UIColor(hex: "#000000")
   }
 
-  struct Shared {
+  struct global {
     static let backgroundColor = UIColor(hex: "#ececec")
     static let dividerColor = UIColor(hex: "#d5d5d5")
     static let navigationBarBackgroundColor = UIColor(hex: "#fdf9f3")

@@ -80,7 +80,7 @@ private extension SearchViewController {
     navigationBarView.attachToTop(of: view)
     navigationBarView.isBackButtonVisible.value = true
     navigationBarView.isSearchButtonVisible.value = false
-    view.backgroundColor = AppColors.Shared.backgroundColor
+    view.backgroundColor = AppColors.global.backgroundColor
   }
 
   func setupListAdapter() {

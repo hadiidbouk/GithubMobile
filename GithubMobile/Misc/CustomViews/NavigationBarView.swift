@@ -81,8 +81,8 @@ private extension NavigationBarView {
   }
 
   func setupView() {
-    backgroundColor = AppColors.Shared.navigationBarBackgroundColor
-    layer.shadowColor = AppColors.Shared.navigationBarShadowColor.cgColor
+    backgroundColor = AppColors.global.navigationBarBackgroundColor
+    layer.shadowColor = AppColors.global.navigationBarShadowColor.cgColor
     layer.masksToBounds = false
     layer.shadowOffset = CGSize(width: 0.0 , height: 1.0)
     layer.shadowOpacity = 1.0

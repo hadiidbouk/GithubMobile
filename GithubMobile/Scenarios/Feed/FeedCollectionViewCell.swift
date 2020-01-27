@@ -13,12 +13,12 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var cellContentView: UIView = {
     let view = UIView()
-    view.backgroundColor = AppColors.Feed.cellBackgroundColor
-    view.layer.borderColor = AppColors.Feed.cellBorderColor.cgColor
+    view.backgroundColor = AppColors.feed.cellBackgroundColor
+    view.layer.borderColor = AppColors.feed.cellBorderColor.cgColor
     view.layer.borderWidth = 1
     view.layer.masksToBounds = false
     view.layer.shadowOffset = CGSize(width: 0.3, height: 0.3)
-    view.layer.shadowColor = AppColors.Feed.cellShadowColor.cgColor
+    view.layer.shadowColor = AppColors.feed.cellShadowColor.cgColor
     view.layer.shadowOpacity = 0.2
     contentView.addSubview(view)
     return view
@@ -34,7 +34,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var usernameLabel: UILabel = {
     let label = UILabel()
-    label.textColor = AppColors.Feed.cellUsernameLabelTextColor
+    label.textColor = AppColors.feed.cellUsernameLabelTextColor
     label.font = UIFont.systemFont(ofSize: 13)
     cellContentView.addSubview(label)
     return label
@@ -43,7 +43,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
   private lazy var timeAgoLabel: UILabel = {
     let label = UILabel()
     label.text = Date.randomDate(range: 2).timeAgo
-    label.textColor = AppColors.Feed.cellTimeAgoLabelTextColor
+    label.textColor = AppColors.feed.cellTimeAgoLabelTextColor
     label.font = UIFont.systemFont(ofSize: 13)
     cellContentView.addSubview(label)
     return label
@@ -51,7 +51,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
 
   private lazy var descriptionLabel: UILabel = {
     let label = UILabel()
-    label.textColor = AppColors.Feed.cellDescriptionLabelTextColor
+    label.textColor = AppColors.feed.cellDescriptionLabelTextColor
     label.numberOfLines = 0
     label.font = UIFont.systemFont(ofSize: 15)
     label.adjustsFontSizeToFitWidth = true

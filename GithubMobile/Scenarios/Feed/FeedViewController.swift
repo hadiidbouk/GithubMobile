@@ -104,7 +104,7 @@ private extension FeedViewController {
   }
 
   func setupView() {
-    view.backgroundColor = AppColors.Shared.backgroundColor
+    view.backgroundColor = AppColors.global.backgroundColor
     navigationBarView.attachToTop(of: view)
   }
 
