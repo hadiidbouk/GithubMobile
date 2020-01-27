@@ -33,6 +33,7 @@ class FeedViewController: BaseViewController {
     return loadingView
   }()
 
+  private let spinToken = "spinner"
   private lazy var adapter = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
 
   private let viewModel: FeedViewModelType
@@ -55,15 +56,35 @@ class FeedViewController: BaseViewController {
 
 extension FeedViewController: ListAdapterDataSource {
   func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-    return viewModel.outputs.sections.value
+    var sections = viewModel.outputs.sections.value as [ListDiffable]
+    if viewModel.outputs.isLoadingOldSections.value {
+      sections.append(spinToken as ListDiffable)
+    }
+    return sections
   }
 
   func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+    if let obj = object as? String, obj == spinToken {
+      return SpinnerSectionController()
+    }
     return FeedSectionController()
   }
 
   func emptyView(for listAdapter: ListAdapter) -> UIView? {
     return nil
+  }
+}
+
+extension FeedViewController: UIScrollViewDelegate {
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                 withVelocity velocity: CGPoint,
+                                 targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
+    if !viewModel.outputs.isLoadingOldSections.value && distance < 200 {
+      let page = viewModel.outputs.page.value + 1
+      viewModel.inputs.loadOldSections.apply(page).start()
+      adapter.performUpdates(animated: true, completion: nil)
+    }
   }
 }
 
@@ -83,6 +104,7 @@ private extension FeedViewController {
   func setupListAdapter() {
     adapter.collectionView = collectionView
     adapter.dataSource = self
+    adapter.scrollViewDelegate = self
   }
 
   func setupBindings() {
@@ -90,7 +112,6 @@ private extension FeedViewController {
 
     loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
     adapter.reactive.performUpdates <~ viewModel.outputs.sections.map(value: ())
-
   }
 }
 

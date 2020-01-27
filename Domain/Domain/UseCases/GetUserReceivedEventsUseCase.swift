@@ -9,5 +9,5 @@
 import ReactiveSwift
 
 public protocol GetUserReceivedEventsUseCase {
-  func get(token: String, username: String) -> SignalProducer<[Event], Error>
+  func get(token: String, username: String, page: Int) -> SignalProducer<[Event], Error>
 }

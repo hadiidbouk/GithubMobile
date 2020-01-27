@@ -35,8 +35,8 @@ class UsersRepository {
       })
   }
 
-  func getReceivedEvents(token: String, username: String) -> SignalProducer<[Event], Error> {
-    return provider.defaultRequest(.getReceivedEvents(token: token, username: username), of: [EventResponse].self)
+  func getReceivedEvents(token: String, username: String, page: Int) -> SignalProducer<[Event], Error> {
+    return provider.defaultRequest(.getReceivedEvents(token: token, username: username, page: page), of: [EventResponse].self)
          .map { [eventConverter] in return $0.map(eventConverter.from) }
          .on(failed: { [weak self] error in
            self?.logger?.error("Unable to get received events. Error: \(error)")

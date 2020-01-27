@@ -30,6 +30,7 @@
 		0F9B3FB023DA54C500D79A72 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */; };
 		0F9B3FB223DA5CBD00D79A72 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */; };
 		0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */; };
+		0FA0231D23DEC320000FE8B8 /* SpinnerSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0231C23DEC320000FE8B8 /* SpinnerSectionController.swift */; };
 		0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A323DC95500066B4F4 /* FeedViewController.swift */; };
 		0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */; };
 		0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */; };
@@ -86,6 +87,7 @@
 		0F9B3FAF23DA54C500D79A72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3FB123DA5CBD00D79A72 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0F9B3FB323DA5D7C00D79A72 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		0FA0231C23DEC320000FE8B8 /* SpinnerSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerSectionController.swift; sourceTree = "<group>"; };
 		0FCD24A323DC95500066B4F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OAuthSwiftCredential+Extensions.swift"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		0F9B3F9F23DA485700D79A72 /* Scenarios */ = {
 			isa = PBXGroup;
 			children = (
+				0FA0231A23DEC2FD000FE8B8 /* Shared */,
 				0FCD24A223DC943F0066B4F4 /* Feed */,
 				0F9B3FA023DA488400D79A72 /* Login */,
 				0F8DA42D23DDF56900ABF254 /* BaseViewController.swift */,
@@ -240,6 +243,22 @@
 				0F8DA44023DE3EB900ABF254 /* Kingfisher+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0FA0231A23DEC2FD000FE8B8 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0FA0231B23DEC308000FE8B8 /* SectionControllers */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0FA0231B23DEC308000FE8B8 /* SectionControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FA0231C23DEC320000FE8B8 /* SpinnerSectionController.swift */,
+			);
+			path = SectionControllers;
 			sourceTree = "<group>";
 		};
 		0FCD24A223DC943F0066B4F4 /* Feed */ = {
@@ -439,6 +458,7 @@
 				0F8DA43D23DE372A00ABF254 /* FeedSectionConverter.swift in Sources */,
 				0F8DA43623DE1A7600ABF254 /* NavigationBarView.swift in Sources */,
 				0F8DA44123DE3EB900ABF254 /* Kingfisher+Extensions.swift in Sources */,
+				0FA0231D23DEC320000FE8B8 /* SpinnerSectionController.swift in Sources */,
 				0F8DA43B23DE234000ABF254 /* Date+Extensions.swift in Sources */,
 				0FCD24AF23DCE8180066B4F4 /* FeedSectionController.swift in Sources */,
 				0F9B3FB423DA5D7C00D79A72 /* AppColors.swift in Sources */,

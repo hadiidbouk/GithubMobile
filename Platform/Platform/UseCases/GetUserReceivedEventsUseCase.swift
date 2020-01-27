@@ -23,10 +23,11 @@ public class GetUserReceivedEventsUseCase: Domain.GetUserReceivedEventsUseCase {
   /// - Parameters:
   ///   - token: the oauth 2 token received after login.
   ///   - username: the account username which receives the events.
+  ///   - page: the page number used in the received events pagination.
   /// - Returns: A Producer which sends one object.
   ///
-  public func get(token: String, username: String) -> SignalProducer<[Event], Error> {
-    return repository.getReceivedEvents(token: token, username: username)
+  public func get(token: String, username: String, page: Int) -> SignalProducer<[Event], Error> {
+    return repository.getReceivedEvents(token: token, username: username, page: page)
   }
 }
 
