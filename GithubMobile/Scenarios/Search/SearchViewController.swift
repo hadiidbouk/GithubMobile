@@ -20,6 +20,8 @@ class SearchViewController: BaseViewController {
 
   private lazy var searchTextField: UISearchTextField = {
     let searchTextField = UISearchTextField()
+    searchTextField.delegate = self
+    searchTextField.autocorrectionType = .no
     view.addSubview(searchTextField)
     return searchTextField
   }()
@@ -68,6 +70,12 @@ extension SearchViewController: ListAdapterDataSource {
   }
 }
 
+extension SearchViewController: UITextFieldDelegate {
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    return false
+  }
+}
+
 private extension SearchViewController {
   func setup() {
     setupView()
@@ -90,7 +98,7 @@ private extension SearchViewController {
 
   func setupBindings() {
     navigationBarView.backButton.reactive.pressed = CocoaAction(viewModel.inputs.dismiss)
-    viewModel.inputs.search <~ searchTextField.reactive.continuousTextValues
+    viewModel.inputs.search <~ searchTextField.reactive.continuousTextValues.skipRepeats()
 
     adapter.reactive.performUpdates <~ viewModel.outputs.sections.map(value: ())
   }
