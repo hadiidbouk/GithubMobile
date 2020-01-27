@@ -73,7 +73,7 @@ private extension FeedSectionModel.Action {
 
   private func forkedAttributedText(fromRepoName: String, toRepoName: String) -> NSMutableAttributedString {
     let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
-    let finalString = NSMutableAttributedString(string: "Forked from ")
+    let finalString = NSMutableAttributedString(string: "Forked ")
 
     let fromRepoString = NSMutableAttributedString(string: fromRepoName, attributes: attrs)
     finalString.append(fromRepoString)
