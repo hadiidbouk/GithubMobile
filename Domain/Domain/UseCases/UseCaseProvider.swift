@@ -11,4 +11,5 @@ import Foundation
 public protocol UseCaseProvider {
   func makeGetAutenticatedUserUseCase() -> GetAuthenticatedUserUseCase
   func makeGetUserReceivedEventsUseCase() -> GetUserReceivedEventsUseCase
+  func makeGetSearchRepositoriesUseCase() -> GetSearchRepositoriesUseCase
 }

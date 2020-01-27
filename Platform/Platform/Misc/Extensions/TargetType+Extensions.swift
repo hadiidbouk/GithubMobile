@@ -22,7 +22,7 @@ extension TargetType {
     return URL(string: baseUrlString)!
   }
 
-  func requestHeaders(token: String) -> [String: String] {
+  func requestHeaders(token: String = "") -> [String: String] {
     return [
       "Accept": "application/json",
       "Content-type": "application/json",
