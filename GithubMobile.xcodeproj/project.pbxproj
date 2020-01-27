@@ -44,6 +44,7 @@
 		0FA0234923DF7206000FE8B8 /* RepoDetailsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */; };
 		0FA0234B23DF724D000FE8B8 /* RepoDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */; };
 		0FA0234D23DF728B000FE8B8 /* RepoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */; };
+		0FA0234F23DF8B44000FE8B8 /* RepoDetailsStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA0234E23DF8B44000FE8B8 /* RepoDetailsStatView.swift */; };
 		0FCD24A423DC95500066B4F4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A323DC95500066B4F4 /* FeedViewController.swift */; };
 		0FCD24A623DC95870066B4F4 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */; };
 		0FCD24A823DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */; };
@@ -114,6 +115,7 @@
 		0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewModelType.swift; sourceTree = "<group>"; };
 		0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewModel.swift; sourceTree = "<group>"; };
 		0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewController.swift; sourceTree = "<group>"; };
+		0FA0234E23DF8B44000FE8B8 /* RepoDetailsStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsStatView.swift; sourceTree = "<group>"; };
 		0FCD24A323DC95500066B4F4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0FCD24A523DC95870066B4F4 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		0FCD24A723DCBA460066B4F4 /* OAuthSwiftCredential+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OAuthSwiftCredential+Extensions.swift"; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				0FA0234823DF7206000FE8B8 /* RepoDetailsViewModelType.swift */,
 				0FA0234A23DF724D000FE8B8 /* RepoDetailsViewModel.swift */,
 				0FA0234C23DF728B000FE8B8 /* RepoDetailsViewController.swift */,
+				0FA0234E23DF8B44000FE8B8 /* RepoDetailsStatView.swift */,
 			);
 			path = RepoDetails;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 			files = (
 				0FA0232823DF1A25000FE8B8 /* SearchViewModelType.swift in Sources */,
 				0FA0232A23DF1A67000FE8B8 /* SearchViewModel.swift in Sources */,
+				0FA0234F23DF8B44000FE8B8 /* RepoDetailsStatView.swift in Sources */,
 				0F9B3FA223DA489200D79A72 /* LoginCoordinator.swift in Sources */,
 				0FCD24B123DCE8640066B4F4 /* FeedCollectionViewCell.swift in Sources */,
 				0F9B3FB223DA5CBD00D79A72 /* UIColor+Extensions.swift in Sources */,

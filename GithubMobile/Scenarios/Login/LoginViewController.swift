@@ -15,11 +15,11 @@ class LoginViewController: BaseViewController {
   private lazy var contentView: UIView = {
     let contentView = UIView()
     contentView.backgroundColor = AppColors.login.loginButtonTextColor
-    contentView.layer.borderColor = AppColors.login.contentBorderColor.cgColor
+    contentView.layer.borderColor = AppColors.global.borderColor.cgColor
     contentView.layer.borderWidth = 1
     contentView.layer.masksToBounds = false
     contentView.layer.shadowOffset = CGSize(width: 0.3, height: 0.3)
-    contentView.layer.shadowColor = AppColors.login.contentShadowColor.cgColor
+    contentView.layer.shadowColor = AppColors.global.shadowColor.cgColor
     contentView.layer.shadowOpacity = 0.2
     view.addSubview(contentView)
     return contentView
