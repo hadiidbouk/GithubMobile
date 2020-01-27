@@ -12,8 +12,6 @@ import Platform
 import XCGLogger
 
 class AppCoordinator: Coordinator {
-  var childCoordinators: [Coordinator] = []
-
   let window: UIWindow
   let rootViewController: UINavigationController
   let logger: XCGLogger?
@@ -25,7 +23,7 @@ class AppCoordinator: Coordinator {
     rootViewController.setNavigationBarHidden(true, animated: false)
   }
 
-  func start() {
+  override func start() {
     window.rootViewController = rootViewController
 
     if let credential = OAuthSwiftCredential.load() {

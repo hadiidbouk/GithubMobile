@@ -12,9 +12,6 @@ import Domain
 import ReactiveSwift
 
 class FeedCoordinator: Coordinator {
-
-  var childCoordinators: [Coordinator] = []
-
   private var viewController: FeedViewController?
 
   private let presentViewController: UINavigationController
@@ -27,7 +24,7 @@ class FeedCoordinator: Coordinator {
     self.useCaseProvider = useCaseProvider
   }
 
-  func start() {
+  override func start() {
     let feedViewModel = FeedViewModel(token: credential.oauthToken,
                                       getAuthenticatedUserUseCase: useCaseProvider.makeGetAutenticatedUserUseCase(),
                                       getReceivedEventsUseCase: useCaseProvider.makeGetUserReceivedEventsUseCase())

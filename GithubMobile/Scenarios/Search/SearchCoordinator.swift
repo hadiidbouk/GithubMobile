@@ -13,8 +13,6 @@ import ReactiveSwift
 
 class SearchCoordinator: Coordinator {
 
-  let childCoordinators: [Coordinator] = []
-
   var viewModel: SearchViewModel?
   var viewController: SearchViewController?
 
@@ -27,7 +25,8 @@ class SearchCoordinator: Coordinator {
     self.credential = credential
     self.useCaseProvider = useCaseProvider
   }
-  func start() {
+
+  override func start() {
     let searchViewModel = SearchViewModel(token: credential.oauthToken,
                                           getSearchRepositoriesUseCase: useCaseProvider.makeGetSearchRepositoriesUseCase())
     let searchViewController = SearchViewController(viewModel: searchViewModel)
@@ -44,12 +43,26 @@ private extension SearchCoordinator {
   func dismiss() {
     presentViewController.popViewController(animated: true)
   }
+
+  func repoDetails() {
+    let repoDetailsCoordinator = RepoDetailsCoordinator(presentViewController: presentViewController,
+                                                        credential: credential,
+                                                        useCaseProvider: useCaseProvider)
+    repoDetailsCoordinator.start()
+    childCoordinators.append(repoDetailsCoordinator)
+  }
 }
 
 private extension Reactive where Base: SearchCoordinator {
   var dismiss: BindingTarget<Void> {
     return makeBindingTarget { base, _ in
       base.dismiss()
+    }
+  }
+
+  var repoDetails: BindingTarget<Void> {
+    return makeBindingTarget { base, _ in
+      base.repoDetails()
     }
   }
 }

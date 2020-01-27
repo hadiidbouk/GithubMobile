@@ -12,9 +12,7 @@ import ReactiveSwift
 import OAuthSwift
 import Domain
 
-class LoginCoordinator: NSObject, Coordinator {
-  var childCoordinators: [Coordinator] = []
-
+class LoginCoordinator: Coordinator {
   private var viewController: LoginViewController?
   private var viewModel: LoginViewModel?
   private var oauthSwift: OAuth2Swift?
@@ -31,7 +29,7 @@ class LoginCoordinator: NSObject, Coordinator {
     self.authConfig = authConfig
   }
 
-  func start() {
+  override func start() {
     let loginViewModel = LoginViewModel()
     let loginViewController = LoginViewController(viewModel: loginViewModel)
     presentViewController.pushViewController(loginViewController, animated: true)
