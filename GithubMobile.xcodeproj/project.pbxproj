@@ -186,7 +186,6 @@
 				0FA0231A23DEC2FD000FE8B8 /* Shared */,
 				0FCD24A223DC943F0066B4F4 /* Feed */,
 				0F9B3FA023DA488400D79A72 /* Login */,
-				0F8DA42D23DDF56900ABF254 /* BaseViewController.swift */,
 			);
 			path = Scenarios;
 			sourceTree = "<group>";
@@ -249,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				0FA0231B23DEC308000FE8B8 /* SectionControllers */,
+				0F8DA42D23DDF56900ABF254 /* BaseViewController.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
