@@ -22,11 +22,25 @@ class FeedSectionConverter {
 private extension FeedSectionConverter {
   func from(_ event: Event) -> NSMutableAttributedString {
     switch event.type {
-    case .watch:  return FeedSectionModel.Action.star(repository: from(event.repo)).description
-    case .create: return FeedSectionModel.Action.create(repository: from(event.repo)).description
-    case .public: return FeedSectionModel.Action.makePublic(repository: from(event.repo)).description
-    case .fork:   return FeedSectionModel.Action.fork.description
-    default:      return FeedSectionModel.Action.notSupported.description
+    case .watch:
+      let repository = from(event.repo)
+      return FeedSectionModel.Action.star(repository: repository).description
+    case .create:
+      let repository = from(event.repo)
+      return FeedSectionModel.Action.create(repository: repository).description
+    case .public:
+      let repository = from(event.repo)
+      return FeedSectionModel.Action.makePublic(repository: repository).description
+    case .fork:
+      guard let forkee = event.payload.forkee else {
+        preconditionFailure("forkee shouldn't be nil")
+      }
+      let fromRepositoryId = Event.Repositroy.Identifier(rawValue: forkee.id.rawValue)
+      let fromRepository = from(Event.Repositroy(id: fromRepositoryId, name: forkee.fullName, url: forkee.url))
+      let toRepository = from(event.repo)
+      return FeedSectionModel.Action.fork(fromRepository: fromRepository, toRepository: toRepository).description
+    default:
+      return FeedSectionModel.Action.notSupported.description
     }
   }
   func from(_ repo: Event.Repositroy) -> FeedSectionModel.Repository {
@@ -37,11 +51,11 @@ private extension FeedSectionConverter {
 private extension FeedSectionModel.Action {
   var description: NSMutableAttributedString {
     switch self {
-    case .star(let repository):       return attributedText(normalText: "Starred", boldText: repository.name)
-    case .fork:                       return attributedText(normalText: "Forked", boldText: "")
-    case .create(let repository):     return attributedText(normalText: "Created", boldText: repository.name)
-    case .makePublic(let repository): return attributedText(normalText: "Created", boldText: repository.name, postfix: "public")
-    case .notSupported:               return attributedText(normalText: "", boldText: "Not Supported")
+    case .star(let repository):           return attributedText(normalText: "Starred", boldText: repository.name)
+    case .create(let repository):         return attributedText(normalText: "Created", boldText: repository.name)
+    case .makePublic(let repository):     return attributedText(normalText: "Created", boldText: repository.name, postfix: "public")
+    case .fork(let fromRepo, let toRepo): return forkedAttributedText(fromRepoName: fromRepo.name, toRepoName: toRepo.name)
+    case .notSupported:                   return attributedText(normalText: "", boldText: "Not Supported")
     }
   }
 
@@ -54,6 +68,22 @@ private extension FeedSectionModel.Action {
       let attributedPostfix = NSMutableAttributedString(string: " \(postfix)")
       finalString.append(attributedPostfix)
     }
+    return finalString
+  }
+
+  private func forkedAttributedText(fromRepoName: String, toRepoName: String) -> NSMutableAttributedString {
+    let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+    let finalString = NSMutableAttributedString(string: "Forked from ")
+
+    let fromRepoString = NSMutableAttributedString(string: fromRepoName, attributes: attrs)
+    finalString.append(fromRepoString)
+
+    let to = NSMutableAttributedString(string: " to ")
+    finalString.append(to)
+
+    let toRepoString = NSMutableAttributedString(string: fromRepoName, attributes: attrs)
+    finalString.append(toRepoString)
+
     return finalString
   }
 }

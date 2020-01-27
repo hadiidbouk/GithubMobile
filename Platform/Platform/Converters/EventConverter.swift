@@ -14,6 +14,7 @@ class EventConverter {
                  type: from(response.type),
                  actor: from(response.actor),
                  repo: from(response.repo),
+                 payload: from(response.payload),
                  createdAt: response.createdAt)
   }
 }
@@ -29,6 +30,17 @@ extension EventConverter {
                  displayName: response.displayLogin,
                  url: response.url,
                  avatarUrl: response.avatarUrl)
+  }
+
+  func from(_ respone: EventResponse.Payload) -> Event.Payload {
+    return .init(forkee: from(respone.forkee))
+  }
+
+  func from(_ response: EventResponse.Forkee?) -> Event.Forkee? {
+    guard let response = response else {
+      return nil
+    }
+    return .init(id: response.id, fullName: response.fullName, url: response.url)
   }
 
   func from(_ eventType: EventResponse.EventType) -> Event.EventType {

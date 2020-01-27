@@ -32,23 +32,23 @@ extension FeedSectionModel {
 
   enum Action: Equatable {
     case star(repository: Repository)
-    case fork
+    case fork(fromRepository: Repository, toRepository: Repository)
     case create(repository: Repository)
     case makePublic(repository: Repository)
     case notSupported
 
     static func == (lhs: Action, rhs: Action) -> Bool {
           switch (lhs, rhs) {
-          case let (.star(lhsRepository), .star(rhsRepository)):              return lhsRepository == rhsRepository
-          case let (.create(lhsRepository), .create(rhsRepository)):          return lhsRepository == rhsRepository
-          case let (.makePublic(lhsRepository), .makePublic(rhsRepository)):  return lhsRepository == rhsRepository
-          case (.fork, .fork):                                                return true
-          case (.notSupported, .notSupported):                                return true
+          case let (.star(lhsRepository), .star(rhsRepository)):                    return lhsRepository == rhsRepository
+          case let (.create(lhsRepository), .create(rhsRepository)):                return lhsRepository == rhsRepository
+          case let (.makePublic(lhsRepository), .makePublic(rhsRepository)):        return lhsRepository == rhsRepository
+          case let (.fork(lhsFromRepo, lhsToRepo), .fork(rhsFromRepo, rhsToRepo)):  return (lhsFromRepo == rhsFromRepo) && (lhsToRepo == rhsToRepo)
+          case (.notSupported, .notSupported):                                      return true
           case (.star, _),
                (.fork, _),
                (.create, _),
                (.makePublic, _),
-               (.notSupported, _):                                            return false
+               (.notSupported, _):                                                   return false
       }
     }
   }

@@ -14,15 +14,15 @@ struct EventResponse: Decodable {
   let type: EventType
   let actor: Actor
   let repo: Repository
+  let payload: Payload
   let createdAt: Date
-
-  //todo: add playload
 
   private enum CodingKeys: String, CodingKey {
     case id
     case type
     case actor
     case repo
+    case payload
     case createdAt = "created_at"
   }
 
@@ -32,6 +32,7 @@ struct EventResponse: Decodable {
     self.type = try container.decode(EventType.self, forKey: .type)
     self.actor = try container.decode(Actor.self, forKey: .actor)
     self.repo = try container.decode(Repository.self, forKey: .repo)
+    self.payload = try container.decode(Payload.self, forKey: .payload)
     self.createdAt = try container.decode(Date.self, forKey: .createdAt)
   }
 }
@@ -69,6 +70,29 @@ extension EventResponse {
     let id: Event.Repositroy.Identifier
     let name: String
     let url: String
+  }
+
+  struct Payload: Decodable {
+    public let forkee: Forkee?
+  }
+
+  struct Forkee: Decodable {
+    public let id: Event.Forkee.Identifier
+    public let fullName: String
+    public let url: String
+
+    private enum CodingKeys: String, CodingKey {
+      case id
+      case fullName = "full_name"
+      case url
+    }
+
+    init(from decoder: Decoder) throws {
+      let container = try decoder.container(keyedBy: CodingKeys.self)
+      self.id = try container.decode(Event.Forkee.Identifier.self, forKey: .id)
+      self.fullName = try container.decode(String.self, forKey: .fullName)
+      self.url = try container.decode(String.self, forKey: .url)
+    }
   }
 
   enum EventType: String, Decodable {

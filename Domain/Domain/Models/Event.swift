@@ -16,17 +16,20 @@ public struct Event: Identifiable {
   public let type: EventType
   public let actor: Actor
   public let repo: Repositroy
+  public let payload: Payload
   public let createdAt: Date
 
   public init(id: Identifier,
               type: EventType,
               actor: Actor,
               repo: Repositroy,
+              payload: Payload,
               createdAt: Date) {
     self.id = id
     self.type = type
     self.actor = actor
     self.repo = repo
+    self.payload = payload
     self.createdAt = createdAt
   }
 }
@@ -68,6 +71,29 @@ public extension Event {
                 url: String) {
       self.id = id
       self.name = name
+      self.url = url
+    }
+  }
+
+  struct Payload {
+    public let forkee: Forkee?
+
+    public init(forkee: Forkee?) {
+      self.forkee = forkee
+    }
+  }
+
+  struct Forkee: Identifiable {
+    public typealias Identifier = IdentifierOf<Forkee>
+    public typealias RawIdentifier = Int
+
+    public let id: Identifier
+    public let fullName: String
+    public let url: String
+
+    public init(id: Identifier, fullName: String, url: String) {
+      self.id = id
+      self.fullName = fullName
       self.url = url
     }
   }
