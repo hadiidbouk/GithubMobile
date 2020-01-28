@@ -11,6 +11,7 @@ import Domain
 class RepositoryConverter {
   func from(_ response: RepositoryResponse) -> Repository {
     return .init(id: response.id,
+                 name: response.name,
                  fullName: response.fullName,
                  description: response.description,
                  starsCount: response.starsCount,

@@ -13,6 +13,7 @@ public struct Repository: Identifiable {
   public typealias RawIdentifier = Int
 
   public let id: Identifier
+  public let name: String
   public let fullName: String
   public let description: String?
   public let starsCount: Int
@@ -21,6 +22,7 @@ public struct Repository: Identifiable {
   public let watchersCount: Int
 
   public init(id: Identifier,
+              name: String,
               fullName: String,
               description: String?,
               starsCount: Int,
@@ -28,6 +30,7 @@ public struct Repository: Identifiable {
               issuesCount: Int,
               watchersCount: Int) {
     self.id = id
+    self.name = name
     self.fullName = fullName
     self.description = description
     self.starsCount = starsCount

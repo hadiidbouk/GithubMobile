@@ -17,6 +17,12 @@ class RepoDetailsViewController: BaseViewController {
     return navigationBarView
   }()
 
+  private lazy var loadingView: LoadingView = {
+    let loadingView = LoadingView()
+    view.addSubview(loadingView)
+    return loadingView
+  }()
+  
   private lazy var headerView: UIView = {
     let headerView = UIView()
     headerView.backgroundColor = AppColors.repoDetails.headerViewBackgroundColor
@@ -26,7 +32,6 @@ class RepoDetailsViewController: BaseViewController {
 
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
-    label.text = "MarvelAR"
     label.font = UIFont.boldSystemFont(ofSize: 22)
     label.textColor = AppColors.repoDetails.titleLabelTextColor
     headerView.addSubview(label)
@@ -39,28 +44,35 @@ class RepoDetailsViewController: BaseViewController {
     label.numberOfLines = 2
     label.baselineAdjustment = .alignCenters
     label.textColor = AppColors.repoDetails.descriptionLabelTextColor
-    label.text = "MarvelAR is an iOS application that present Marvel Heroes 3D Models Using ARKit."
     headerView.addSubview(label)
     return label
   }()
 
-  private lazy var starView: UIView = {
+  private lazy var starView: RepoDetailsStatView = {
     let starView = RepoDetailsStatView()
+    starView.image.value = #imageLiteral(resourceName: "star")
+    starView.title.value = "Stars"
     return starView
   }()
 
-  private lazy var forkView: UIView = {
+  private lazy var forkView: RepoDetailsStatView = {
     let forkView = RepoDetailsStatView()
+    forkView.image.value = #imageLiteral(resourceName: "fork")
+    forkView.title.value = "Forks"
     return forkView
   }()
 
-  private lazy var issuesView: UIView = {
+  private lazy var issuesView: RepoDetailsStatView = {
     let issuesView = RepoDetailsStatView()
+    issuesView.image.value = #imageLiteral(resourceName: "issue")
+    issuesView.title.value = "Issues"
     return issuesView
   }()
 
-  private lazy var watchersView: UIView = {
+  private lazy var watchersView: RepoDetailsStatView = {
     let watchersView = RepoDetailsStatView()
+    watchersView.image.value = #imageLiteral(resourceName: "watcher")
+    watchersView.title.value = "Watchers"
     return watchersView
   }()
 
@@ -122,6 +134,18 @@ private extension RepoDetailsViewController {
 
   func setupBinding() {
     navigationBarView.backButton.reactive.pressed = CocoaAction(viewModel.inputs.dismiss)
+    viewModel.inputs.isVisible <~ isVisible
+    goToGithubButton.reactive.pressed = CocoaAction(viewModel.inputs.goToGitHub)
+
+    loadingView.reactive.isHidden <~ viewModel.outputs.isLoading.negate()
+
+    let nonNilModel = viewModel.outputs.repository.producer.skipNil()
+    titleLabel.reactive.text <~ nonNilModel.map(\.name)
+    descriptionLabel.reactive.text <~ nonNilModel.map(\.description)
+    starView.reactive.number <~ nonNilModel.map(\.starsCount)
+    forkView.reactive.number <~ nonNilModel.map(\.forksCount)
+    issuesView.reactive.number <~ nonNilModel.map(\.issuesCount)
+    watchersView.reactive.number <~ nonNilModel.map(\.watchersCount)
   }
 }
 
@@ -132,6 +156,7 @@ private extension RepoDetailsViewController {
     setupDescriptionLabelConstraints()
     setupStatStackViewConstraints()
     setupGoToGitHubButtonConstrains()
+    setupLoadingViewConstraints()
   }
 
   func setupHeaderViewConstraints() {
@@ -163,8 +188,8 @@ private extension RepoDetailsViewController {
   func setupStatStackViewConstraints() {
     statStackView.apply {
       $0.topConstraint(onBottomOf: headerView, constant: 30)
-      $0.leadingConstraint(constant: 30)
-      $0.trailingConstaint(constant: -30)
+      $0.leadingConstraint(constant: 25)
+      $0.trailingConstaint(constant: -25)
       $0.heightConstraint(constant: 60)
     }
   }
@@ -175,6 +200,12 @@ private extension RepoDetailsViewController {
       $0.topConstraint(onBottomOf: statStackView, constant: 30)
       $0.widthConstraint(constant: 120)
       $0.heightConstraint(constant: 40)
+    }
+  }
+
+  func setupLoadingViewConstraints() {
+    loadingView.apply {
+      $0.stickToParentEdges()
     }
   }
 }

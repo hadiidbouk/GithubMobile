@@ -13,32 +13,29 @@ class RepoDetailsStatView: UIView {
   private lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
-    imageView.image = #imageLiteral(resourceName: "star")
     return imageView
   }()
 
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.textColor = AppColors.repoDetails.statTitleLabelTextColor
-    label.font = UIFont.systemFont(ofSize: 14)
-    label.text = "Stars"
+    label.font = UIFont.systemFont(ofSize: 12)
     label.textAlignment = .center
     return label
   }()
 
-  private lazy var numberLabel: UILabel = {
+  fileprivate lazy var numberLabel: UILabel = {
     let label = UILabel()
     label.textColor = AppColors.repoDetails.statNumberLabelTextColor
     label.font = UIFont.boldSystemFont(ofSize: 13)
-    label.text = "3k"
     return label
   }()
 
   private lazy var imageAndNumberStackView: UIStackView = {
     let stackView = UIStackView()
     stackView.axis = .horizontal
-    stackView.distribution = .fillEqually
-    stackView.alignment = .center
+    stackView.distribution = .fill
+    stackView.alignment = .trailing
     return stackView
   }()
 
@@ -52,7 +49,6 @@ class RepoDetailsStatView: UIView {
 
   let image = MutableProperty<UIImage>(#imageLiteral(resourceName: "avatar_placeholder"))
   let title = MutableProperty<String>("")
-  let number = MutableProperty<Int>(0)
 
   init() {
     super.init(frame: .zero)
@@ -70,6 +66,7 @@ private extension RepoDetailsStatView {
     setupView()
     setupImageAndNumberStackView()
     setupRootStackView()
+    setupBindings()
     setupConstraints()
   }
 
@@ -93,6 +90,11 @@ private extension RepoDetailsStatView {
     rootStackView.addArrangedSubview(titleLabel)
     rootStackView.addArrangedSubview(imageAndNumberStackView)
   }
+
+  func setupBindings() {
+    titleLabel.reactive.text <~ title
+    imageView.reactive.image <~ image
+  }
 }
 
 // MARK: - Constraints
@@ -104,9 +106,9 @@ private extension RepoDetailsStatView {
 
   func setupRootStackViewConstraints() {
     rootStackView.apply {
-      $0.topConstraint(constant: 5)
-      $0.leadingConstraint(constant: 5)
-      $0.trailingConstaint(constant: -5)
+      $0.topConstraint(constant: 10)
+      $0.leadingConstraint(constant: 8)
+      $0.trailingConstaint(constant: -8)
       $0.bottomConstraint(constant: -5)
     }
   }
@@ -115,6 +117,14 @@ private extension RepoDetailsStatView {
     imageView.apply {
       $0.widthConstraint(constant: 15)
       $0.heightConstraint(constant: 15)
+    }
+  }
+}
+
+extension Reactive where Base: RepoDetailsStatView {
+  var number: BindingTarget<Int> {
+    return makeBindingTarget { base, number in
+      base.numberLabel.text = number.roundedWithAbbreviations
     }
   }
 }

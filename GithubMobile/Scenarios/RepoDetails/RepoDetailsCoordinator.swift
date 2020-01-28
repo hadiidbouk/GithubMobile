@@ -10,6 +10,7 @@ import UIKit
 import OAuthSwift
 import Domain
 import ReactiveSwift
+import SafariServices
 
 protocol RepoDetailsCoordinatorDelegate: class {
   func repoDetailsCoordinatorDidDismiss(_ coordinator: RepoDetailsCoordinator)
@@ -20,33 +21,43 @@ class RepoDetailsCoordinator: Coordinator {
 
   var viewModel: RepoDetailsViewModel?
   var viewController: RepoDetailsViewController?
+  var safariViewController: SFSafariViewController?
 
   weak var delegate: Delegate?
 
   private let presentViewController: UINavigationController
   private let credential: OAuthSwiftCredential
   private let useCaseProvider: UseCaseProvider
-  private let repositoryName: String
+  private let repositoryFullName: String
 
   init(presentViewController: UINavigationController,
        credential: OAuthSwiftCredential,
        useCaseProvider: UseCaseProvider,
-       repositoryName: String) {
+       repositoryFullName: String) {
     self.presentViewController = presentViewController
     self.credential = credential
     self.useCaseProvider = useCaseProvider
-    self.repositoryName = repositoryName
+    self.repositoryFullName = repositoryFullName
   }
 
   override func start() {
-    let repoDetailsViewModel = RepoDetailsViewModel()
+    let repoDetailsViewModel = RepoDetailsViewModel(token: credential.oauthToken,
+                                                    repositoryFullName: repositoryFullName,
+                                                    getRepositoryUseCase: useCaseProvider.makeGetRepositoryUseCase())
     let repoDetailsViewController = RepoDetailsViewController(viewModel: repoDetailsViewModel)
     presentViewController.pushViewController(repoDetailsViewController, animated: true)
 
     self.viewModel = repoDetailsViewModel
     self.viewController = repoDetailsViewController
 
-    reactive.dismiss <~ repoDetailsViewModel.dismiss.values
+    reactive.dismiss <~ repoDetailsViewModel.inputs.dismiss.values
+    reactive.goToGitHub <~ repoDetailsViewModel.inputs.goToGitHub.values
+  }
+}
+
+extension RepoDetailsCoordinator: SFSafariViewControllerDelegate {
+  func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+    presentViewController.popViewController(animated: true)
   }
 }
 
@@ -55,12 +66,26 @@ private extension RepoDetailsCoordinator {
     presentViewController.popViewController(animated: true)
     delegate?.repoDetailsCoordinatorDidDismiss(self)
   }
+
+  func goToGitHub() {
+    let urlString = "https://github.com/\(repositoryFullName)"
+    let url = URL(string: urlString)!
+    safariViewController = SFSafariViewController(url: url)
+    safariViewController?.delegate = self
+    presentViewController.pushViewController(safariViewController!, animated: true)
+  }
 }
 
 private extension Reactive where Base: RepoDetailsCoordinator {
   var dismiss: BindingTarget<Void> {
     return makeBindingTarget { base, _ in
       base.dismiss()
+    }
+  }
+
+  var goToGitHub: BindingTarget<Void> {
+    return makeBindingTarget { base, _ in
+      base.goToGitHub()
     }
   }
 }

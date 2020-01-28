@@ -59,11 +59,11 @@ private extension SearchCoordinator {
     delegate?.searchCoordinatorDidDismiss(self)
   }
 
-  func repoDetails(repositoryName: String) {
+  func repoDetails(repositoryFullName: String) {
     let repoDetailsCoordinator = RepoDetailsCoordinator(presentViewController: presentViewController,
                                                         credential: credential,
                                                         useCaseProvider: useCaseProvider,
-                                                        repositoryName: repositoryName)
+                                                        repositoryFullName: repositoryFullName)
     repoDetailsCoordinator.start()
     childCoordinators.append(repoDetailsCoordinator)
   }
@@ -77,8 +77,8 @@ private extension Reactive where Base: SearchCoordinator {
   }
 
   var repoDetails: BindingTarget<String> {
-    return makeBindingTarget { base, repositoryName in
-      base.repoDetails(repositoryName: repositoryName)
+    return makeBindingTarget { base, repositoryFullName in
+      base.repoDetails(repositoryFullName: repositoryFullName)
     }
   }
 }

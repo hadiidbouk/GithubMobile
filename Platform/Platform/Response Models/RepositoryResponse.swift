@@ -10,6 +10,7 @@ import Domain
 
 struct RepositoryResponse: Decodable {
   let id: Repository.Identifier
+  let name: String
   let fullName: String
   let description: String?
   let starsCount: Int
@@ -19,6 +20,7 @@ struct RepositoryResponse: Decodable {
 
   private enum CodingKeys: String, CodingKey {
     case id
+    case name
     case fullName = "full_name"
     case description
     case starsCount = "stargazers_count"
@@ -30,6 +32,7 @@ struct RepositoryResponse: Decodable {
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.id = try container.decode(Repository.Identifier.self, forKey: .id)
+    self.name = try container.decode(String.self, forKey: .name)
     self.fullName = try container.decode(String.self, forKey: .fullName)
     self.description = try? container.decode(String.self, forKey: .description)
     self.starsCount = try container.decode(Int.self, forKey: .starsCount)
