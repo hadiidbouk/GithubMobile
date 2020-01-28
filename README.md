@@ -1,5 +1,5 @@
 # GithubMobile
-Github Mobile Sample App, Using Uncle Bob's Clean Architecture
+Github Mobile App, Using Uncle Bob's Clean Architecture
 
 Pods Used: ReactiveSwift + ReactiveCocoa + Moya + IGListKit
 
