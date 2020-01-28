@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>responseType</key>
+	<string>code</string>
+	<key>authorizeUrl</key>
+	<string>https://github.com/login/oauth/authorize</string>
+	<key>accessTokenUrl</key>
+	<string>https://github.com/login/oauth/access_token</string>
+	<key>scope</key>
+	<string>user,repo</string>
+	<key>redirectUri</key>
+	<string>com.hadiidbouk.githubmobile://callback</string>
+	<key>clientSecret</key>
+	<string>3e28c1c4acb5853f942c5f88b74524bb36b14a19</string>
+	<key>clientId</key>
+	<string>483f7c902b55aa6d7a58</string>
+</dict>
+</plist>
